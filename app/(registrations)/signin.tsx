@@ -22,7 +22,7 @@ const SigninScreen = () => {
         validationSchema={SignInSchema}
         onSubmit={(values) => {
           console.log(values);
-          route.push('/planner/home')
+          route.push('/planner/schedule')
         }}
       >
         {({

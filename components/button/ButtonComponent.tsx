@@ -2,12 +2,12 @@ import { StyleSheet } from "react-native";
 import React from "react";
 import { Button } from "react-native-paper";
 
-const ButtonComponent = ({icon, mode, onPress, label, marginTop}:any) => {
+const ButtonComponent = ({icon, mode, onPress, label, marginTop, height, labelStyle, customstyle}:any) => {
   return (
     <Button
-      style={marginTop !== undefined ? { marginTop } : {}}
-      contentStyle = {styles.content}
-      labelStyle = {styles.label}
+      style={[marginTop !== undefined ? { marginTop } : {}, customstyle]}
+      contentStyle = {height !== undefined ? {height} : styles.content}
+      labelStyle = {[styles.label, labelStyle]}
       icon={icon? icon : undefined}
       mode={mode}
       onPress={onPress}

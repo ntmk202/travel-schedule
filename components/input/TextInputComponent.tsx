@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import * as React from 'react'
 import { TextInput } from 'react-native-paper'
 
-const TextInputComponent = ({label, text, type, onChangeText}:any) => {
+const TextInputComponent = ({label, text, type, onChangeText, disable, onBlur}:any) => {
   return (
     <View style={styles.field}>
       <Text style={styles.label}>
@@ -16,7 +16,9 @@ const TextInputComponent = ({label, text, type, onChangeText}:any) => {
           mode='outlined'
           value={text}
           textContentType={type}
-          onChangeText={onChangeText}
+          onChangeText={onChangeText ? onChangeText:undefined}
+          disabled = {disable? true : false}
+          onBlur={onBlur ? onBlur : undefined}
         />
       </View>
     </View>

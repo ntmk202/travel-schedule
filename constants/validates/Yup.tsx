@@ -34,5 +34,16 @@ export const FixPasswordSchema = Yup.object().shape({
     .required("Password is required"),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref('password'), undefined], "Passwords must match")
-    .required("Confirm Password is required"),
+    .required("Confirm password is required"),
+});
+
+export const EditPasswordSchema = Yup.object().shape({
+  oldPassword: Yup.string()
+    .required("Old password is required"),
+  newPassword: Yup.string()
+    .min(6, "Password must be at least 6 characters long")
+    .required("New password is required"),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref('newPassword'), undefined], "Passwords must match")
+    .required("Confirm password is required"),
 });
