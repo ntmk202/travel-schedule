@@ -26,7 +26,7 @@ const _layout = () => {
             ),
           }}
         />
-        {/* <Drawer.Screen
+        <Drawer.Screen
           name="account/profile"
           options={{
             headerTitle: "Profile",
@@ -45,7 +45,7 @@ const _layout = () => {
               <Icon source="cog" size={size} color={color} />
             ),
           }}
-        /> */}
+        />
       </Drawer>
     </GestureHandlerRootView>
   );
