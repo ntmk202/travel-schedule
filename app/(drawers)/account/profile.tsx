@@ -63,6 +63,7 @@ export default ProfileScreen;
 const style = StyleSheet.create({
   container: { 
     flex: 1,
+    backgroundColor: '#fff',
     justifyContent: "center", 
     alignItems: "center" 
   },
