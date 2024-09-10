@@ -15,8 +15,6 @@ const initialValues: UpdatePasswordFormValues = {
 
 const UpdatePasswordScreen = () => {
   const route = useRouter()
-  // const [password, setPassword] = React.useState("");
-  // const [rePassword, setRePassword] = React.useState("");
   return (
     <SafeAreaView style={styles.flexVertical}>
       <Text style={styles.typoHeading}>Create New Password</Text>

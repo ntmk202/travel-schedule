@@ -2,7 +2,6 @@ import { View, Text, Dimensions, StyleSheet } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ButtonComponent, FormNewPasswordModal, TextInputComponent, UserAvatar } from "@/components";
-import { Button } from "react-native-paper";
 
 const { width } = Dimensions.get("window");
 
@@ -33,18 +32,15 @@ const ProfileScreen = () => {
             type="emailAddress"
             onChangeText={(value: string) => setEmail(value)}
           />
-          {/* <Text style={style.typoText} onPress={showModal}>
-            Create New Password
-          </Text> */}
+          <Text style={style.typoText} onPress={showModal}>
+            Change Password
+          </Text>
           <TextInputComponent
             label="Password"
             text={password}
             type="password"
             disable
           />
-          <Button style={style.typoText} onPress={showModal}>
-            Change Password
-          </Button>
         </View>
         <ButtonComponent
           label="Save"
@@ -69,10 +65,12 @@ const style = StyleSheet.create({
   },
   typoText: {
     fontFamily: "RC_Regular",
-    fontSize: 20,
-    // top: 35,
+    height: 0,
+    top: 10,
     marginEnd: 10,
+    fontSize: 20,
     color: "#6750a4",
-    alignSelf: "flex-end"
+    alignSelf: "flex-end",
+    zIndex: 999,
   },
 });

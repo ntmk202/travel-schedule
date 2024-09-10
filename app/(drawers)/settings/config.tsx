@@ -1,9 +1,7 @@
-import { View, Text, Dimensions } from "react-native";
+import { View} from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ToggleComponent } from "@/components";
-
-const { width } = Dimensions.get("window");
 
 export default function SettingScreen() {
   const [notifications, setNotifications] = React.useState(true);

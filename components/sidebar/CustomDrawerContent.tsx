@@ -1,9 +1,8 @@
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import React from "react";
 import {
   DrawerContentScrollView,
   DrawerItem,
-  DrawerItemList,
 } from "@react-navigation/drawer";
 import { useRouter } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -47,13 +46,13 @@ export default function CustomDrawerContent(props: any) {
             />
           </View>
         </View>
-        {/* Manually render Drawer items and filter unwanted routes */}
         {props.state.routes.map((drawerRoute: any, index: number) => {
           if (!hiddenRoutes.includes(drawerRoute.name)) {
             return (
               <DrawerItem
                 key={drawerRoute.key}
                 label='Schedule'
+                labelStyle={styles.textDrawer}
                 icon={({ color, size }) => (
                   <Icon source="notebook" color={color} size={size} />
                 )} 
@@ -67,30 +66,42 @@ export default function CustomDrawerContent(props: any) {
 
       <View
         style={{
-          gap: 20,
+          gap: 30,
           borderTopColor: "#dde3fe",
           borderTopWidth: 1,
           padding: 20,
           paddingBottom: 20 + bottom,
         }}
       >
-        <View style={{ flexDirection: "row", gap: 20 }}>
-          <Icon source="account" size={20} />
-          <Text onPress={() => route.navigate("/account/profile")}>
+        <TouchableOpacity onPress={() => route.navigate("/account/profile")} style={styles.row}>
+          <Icon source="account" size={24} color="#454551" />
+          <Text style={styles.textDrawer} >
             Account
           </Text>
-        </View>
-        <View style={{ flexDirection: "row", gap: 20 }}>
-          <Icon source="cog" size={20} />
-          <Text onPress={() => route.navigate("/settings/config")}>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => route.navigate("/settings/config")} style={styles.row}>
+          <Icon source="cog" size={24} color="#454551" />
+          <Text style={styles.textDrawer} >
             Setting
           </Text>
-        </View>
-        <View style={{ flexDirection: "row", gap: 20 }}>
-          <Icon source="logout" size={20} />
-          <Text onPress={() => route.replace("/")}>Log out</Text>
-        </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => route.replace("/")} style={styles.row}>
+          <Icon source="logout" size={24} color="#454551" />
+          <Text style={styles.textDrawer} >Log out</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  textDrawer: {
+    fontSize: 16,
+    color: "#454551",
+    fontFamily: 'RC_Medium'
+  },
+  row:{
+    flexDirection: 'row',
+    gap: 40
+  }
+})

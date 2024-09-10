@@ -15,9 +15,6 @@ const initialValues: SignUpFormValues = {
 
 const SignupScreen = () => {
   const route = useRouter()
-  // const [username, setUsername] = React.useState("");
-  // const [email, setEmail] = React.useState("");
-  // const [password, setPassword] = React.useState("");
   return (
     <SafeAreaView style={styles.flexVertical}>
       <Text style={styles.typoHeading}>Sign Up for Planner</Text>
