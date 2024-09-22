@@ -9,10 +9,15 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Icon } from "react-native-paper";
 import ButtonComponent from "../button/ButtonComponent";
 import UserAvatar from "../avatar/UserAvatar";
+import FormNewSchedule from "../modal/FormNewSchedule";
 
 export default function CustomDrawerContent(props: any) {
   const { top, bottom } = useSafeAreaInsets();
   const route = useRouter();
+  const [visible, setVisible] = React.useState(false);
+
+  const showModal = () => setVisible(true);
+  const hideModal = () => setVisible(false);
 
   const hiddenRoutes = ["account/profile", "settings/config"];
 
@@ -42,7 +47,7 @@ export default function CustomDrawerContent(props: any) {
               label="Add Schedule"
               labelStyle={{ fontSize: 16 }}
               customstyle={{ borderRadius: 5 }}
-              onPress={() => console.log("Pressed")}
+              onPress={showModal}
             />
           </View>
         </View>
@@ -90,6 +95,7 @@ export default function CustomDrawerContent(props: any) {
           <Text style={styles.textDrawer} >Log out</Text>
         </TouchableOpacity>
       </View>
+      <FormNewSchedule visible={visible} onDismiss={hideModal} handleSubmit={() => console.log('press')} />
     </View>
   );
 }

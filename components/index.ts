@@ -1,7 +1,11 @@
 // input field
 export {default as TextInputComponent} from './input/TextInputComponent'
+export {default as AutoComplete} from './input/AutoComplete'
+export {default as DateRangePicker} from './input/DateRangePicker'
 export {default as ButtonComponent} from './button/ButtonComponent'
-export {default as CustomDrawerContent} from './sidebar/CustomDrawerContent'
+export {default as CustomDrawerContent} from './drawers/CustomDrawerContent'
 export {default as UserAvatar} from './avatar/UserAvatar'
 export {default as FormNewPasswordModal} from './modal/FormNewPasswordModal'
+export {default as FormNewSchedule} from './modal/FormNewSchedule'
 export {default as ToggleComponent} from './toggle/ToggleComponent'
+export {default as CustomListItem} from './card/CustomListItem'

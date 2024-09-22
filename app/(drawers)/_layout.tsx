@@ -22,7 +22,6 @@ const _layout = () => {
           name="planner/schedule"
           options={{
             headerTitle: "Schedule",
-            drawerLabel: "Schedule",
             headerTitleStyle: headerTitleStyle,
             drawerIcon: ({ size, color }) => (
               <Icon source="notebook" size={size} color={color} />
@@ -33,7 +32,6 @@ const _layout = () => {
           name="account/profile"
           options={{
             headerTitle: "Profile",
-            drawerLabel: "Profile",
             headerTitleStyle: headerTitleStyle,
             drawerIcon: ({ size, color }) => (
               <Icon source="account" size={size} color={color} />
@@ -44,7 +42,6 @@ const _layout = () => {
           name="settings/config"
           options={{
             headerTitle: "Setting",
-            drawerLabel: "Setting",
             headerTitleStyle: headerTitleStyle,
             drawerIcon: ({ size, color }) => (
               <Icon source="cog" size={size} color={color} />
