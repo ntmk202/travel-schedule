@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end'
   },
   form: {
-    width: width * 0.4,
+    width: width * 0.8,
   },
   errorText: {
     fontSize: 14,

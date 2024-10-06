@@ -1,31 +1,32 @@
 import { View, Text, StyleSheet, Dimensions, ScrollView } from 'react-native';
 import React, { useState } from 'react';
 import { Modal, Portal } from 'react-native-paper';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
 import ButtonComponent from '../button/ButtonComponent';
 import TextInputComponent from '../input/TextInputComponent';
-import CalendarPicker from "react-native-calendar-picker";
 import DateRangePicker from '../input/DateRangePicker';
 import AutocompleteComponent from '../input/AutoComplete';
+import { newScheduleSchema } from '@/constants';
 
 const { width } = Dimensions.get("window");
+
 const budgetData = [
-  { title: "Cheap", desc: "Budget-friendly", icon: "emoticon-excited-outline" },
-  { title: "Moderate", desc: "Mid-range", icon: "emoticon-kiss-outline"},
-  { title: "Luxury", desc: "High-end", icon: "emoticon-cool-outline"}
-]
+  { id:'1', title: "Cheap", desc: "Budget-friendly", icon: "emoticon-excited-outline" },
+  { id:'2', title: "Moderate", desc: "Mid-range", icon: "emoticon-kiss-outline" },
+  { id:'3', title: "Luxury", desc: "High-end", icon: "emoticon-cool-outline" }
+];
 
 const travelerData = [
-{ title: "Just Me", desc: "Solo traveler", icon: "glass-mug-variant" },
-{ title: "Couple", desc: "Traveling with partner", icon: "human-male-female" },
-{ title: "Family", desc: "Traveling with family", icon: "hoop-house" },
-{ title: "Friends", desc: "Traveling with friends", icon: "account-group-outline" }
-]
+  { id:'1', title: "Just Me", desc: "Solo traveler", icon: "glass-mug-variant" },
+  { id:'2', title: "Couple", desc: "Traveling with partner", icon: "human-male-female" },
+  { id:'3', title: "Family", desc: "Traveling with family", icon: "hoop-house" },
+  { id:'4', title: "Friends", desc: "Traveling with friends", icon: "account-group-outline" }
+];
 
 const FormNewSchedule = ({ visible, onDismiss, handleSubmit }: any) => {
   const [selectedStartDate, setSelectedStartDate] = useState<Date | undefined>(undefined);
   const [selectedEndDate, setSelectedEndDate] = useState<Date | undefined>(undefined);
-  const [title, setTitle] = useState("");
-  const [price, setPrice] = useState("");
 
   const onDateChange = (date: Date, type: "START_DATE" | "END_DATE") => {
     if (type === "END_DATE") {
@@ -46,47 +47,101 @@ const FormNewSchedule = ({ visible, onDismiss, handleSubmit }: any) => {
       >
         <Text style={styles.title}>New Schedule</Text>
         <Text style={styles.text}>Plan your trip more intelligently and quickly</Text>
-        <View style={{ width: '90%' }}>
-          <View style={styles.row}>
-            <View style={{ flex: 0.4 }}>
-              <TextInputComponent
-                label="Where do you want to go?"
-                text={title}
-                type="text"
-                onChangeText={(value: string) => setTitle(value)}
-              />
-              {/* <TextInputComponent
-                label="How is your budget?"
-                text={price}
-                type="text"
-                onChangeText={(value: string) => setPrice(value)}
-                /> */}
-              <AutocompleteComponent label="What is your budget for this trip?" data={budgetData} />
-              <AutocompleteComponent label="Who is travelling?" data={travelerData} />
+
+        <Formik
+          initialValues={{
+            title: '',
+            traveler: '',
+            price: '',
+            startDate: selectedStartDate,
+            endDate: selectedEndDate
+          }}
+          validationSchema={newScheduleSchema}
+          onSubmit={(values) => {
+            handleSubmit(values);
+          }}
+        >
+          {({
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            values,
+            errors,
+            touched,
+            setFieldValue
+          }) => (
+            <View style={{ width: '100%' }}>
+              <ScrollView nestedScrollEnabled={true}>
+                <View>
+                  <TextInputComponent
+                    label="Where do you want to go?"
+                    text={values.title}
+                    onBlur={handleBlur('title')}
+                    onChangeText={handleChange('title')}
+                  />
+                  {errors.title && touched.title && (
+                    <Text style={styles.errorText}>{errors.title}</Text>
+                  )}
+
+                  <AutocompleteComponent
+                    label="How is your budget?"
+                    data={budgetData}
+                    query={values.price}
+                    onQueryChange={(text) => setFieldValue('price', text)}
+                  />
+                  {errors.price && touched.price && (
+                    <Text style={styles.errorText}>{errors.price}</Text>
+                  )}
+
+                  <AutocompleteComponent
+                    label="Who is travelling?"
+                    data={travelerData}
+                    query={values.traveler}
+                    onQueryChange={(text) => setFieldValue('traveler', text)}
+                  />
+                  {errors.traveler && touched.traveler && (
+                    <Text style={styles.errorText}>{errors.traveler}</Text>
+                  )}
+                </View>
+
+                <View>
+                  <DateRangePicker
+                    startDate={values.startDate}
+                    endDate={values.endDate}
+                    onDateChange={(date, type) => {
+                      if (type === "START_DATE") {
+                        setFieldValue('startDate', date);
+                      } else {
+                        setFieldValue('endDate', date);
+                      }
+                    }}
+                  />
+                  {errors.startDate && touched.startDate && (
+                    <Text style={styles.errorText}>{errors.startDate}</Text>
+                  )}
+                  {errors.endDate && touched.endDate && (
+                    <Text style={styles.errorText}>{errors.endDate}</Text>
+                  )}
+                </View>
+              </ScrollView>
+
+              <View style={[styles.row, { alignSelf: "flex-end" }]}>
+                <ButtonComponent
+                  label="Cancel"
+                  mode="elevated"
+                  onPress={onDismiss}
+                  marginTop={20}
+                />
+                <ButtonComponent
+                  label="Create"
+                  mode="contained"
+                  onPress={handleSubmit}
+                  marginTop={20}
+                />
+              </View>
             </View>
-            <View style={{ flex: 0.6 }}>
-              <DateRangePicker
-                startDate={selectedStartDate}
-                endDate={selectedEndDate}
-                onDateChange={onDateChange}
-              />
-            </View>
-          </View>
-          <View style={[styles.row, { alignSelf: "flex-end" }]}>
-            <ButtonComponent
-              label="Cancel"
-              mode="elevated"
-              onPress={onDismiss}
-              marginTop={20}
-            />
-            <ButtonComponent
-              label="Create"
-              mode="contained"
-              onPress={handleSubmit}
-              marginTop={20}
-            />
-          </View>
-        </View>
+          )}
+        </Formik>
       </Modal>
     </Portal>
   );
@@ -99,25 +154,24 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     alignItems: "center",
     padding: 20,
-    width: width * 0.6,
+    width: width * 0.9,
     borderRadius: 10,
   },
   title: {
     fontSize: 24,
     fontFamily: "RC_SemiBold",
-    paddingBottom: 10,
-    marginTop: 30,
+    lineHeight: 30,
+    marginTop: 10,
   },
   text: {
     fontSize: 14,
     color: "#5a5a5a",
     fontFamily: "RC_Regular",
-    marginBottom: 20,
+    marginBottom: 10,
   },
   row: {
     flexDirection: "row",
     gap: 20,
-    marginBottom: 30,
   },
   errorText: {
     fontSize: 14,

@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
       marginTop: 20,
     },
     form: {
-      width: width * 0.4,
+      width: width * 0.8,
     },
     errorText: {
       fontSize: 14,

@@ -14,9 +14,9 @@ const ProfileScreen = () => {
   const showModal = () => setVisible(true);
   const hideModal = () => setVisible(false);
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <View style={style.container}>
-        <View style={{ width: width * 0.4 }}>
+    <SafeAreaView style={style.container}>
+      <View>
+        <View style={{ width: width * 0.8 }}>
           <View>
             <UserAvatar />
           </View>
@@ -60,13 +60,13 @@ const style = StyleSheet.create({
   container: { 
     flex: 1,
     backgroundColor: '#fff',
-    justifyContent: "center", 
+    // justifyContent: "center", 
     alignItems: "center" 
   },
   typoText: {
     fontFamily: "RC_Regular",
-    height: 0,
-    top: 10,
+    // height: 0,
+    top: 35,
     marginEnd: 10,
     fontSize: 20,
     color: "#6750a4",

@@ -45,3 +45,11 @@ export const EditPasswordSchema = Yup.object().shape({
     .oneOf([Yup.ref('newPassword'), undefined], "Passwords must match")
     .required("Confirm password is required"),
 });
+
+export const newScheduleSchema = Yup.object().shape({
+  title: Yup.string().required('Destination is required'),
+  traveler: Yup.string().required('Traveler type is required'),
+  price: Yup.string().required('Budget is required'),
+  startDate: Yup.date().required('Start date is required'),
+  endDate: Yup.date().required('End date is required')
+});

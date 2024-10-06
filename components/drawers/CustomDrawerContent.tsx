@@ -1,9 +1,6 @@
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import React from "react";
-import {
-  DrawerContentScrollView,
-  DrawerItem,
-} from "@react-navigation/drawer";
+import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import { useRouter } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Icon } from "react-native-paper";
@@ -56,15 +53,15 @@ export default function CustomDrawerContent(props: any) {
             return (
               <DrawerItem
                 key={drawerRoute.key}
-                label='Schedule'
+                label="Schedule"
                 labelStyle={styles.textDrawer}
                 icon={({ color, size }) => (
                   <Icon source="notebook" color={color} size={size} />
-                )} 
+                )}
                 onPress={() => props.navigation.navigate(drawerRoute.name)}
               />
             );
-          } 
+          }
           return null;
         })}
       </DrawerContentScrollView>
@@ -78,24 +75,33 @@ export default function CustomDrawerContent(props: any) {
           paddingBottom: 20 + bottom,
         }}
       >
-        <TouchableOpacity onPress={() => route.navigate("/account/profile")} style={styles.row}>
+        <TouchableOpacity
+          onPress={() => route.navigate("/account/profile")}
+          style={styles.row}
+        >
           <Icon source="account" size={24} color="#454551" />
-          <Text style={styles.textDrawer} >
-            Account
-          </Text>
+          <Text style={styles.textDrawer}>Account</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => route.navigate("/settings/config")} style={styles.row}>
+        <TouchableOpacity
+          onPress={() => route.navigate("/settings/config")}
+          style={styles.row}
+        >
           <Icon source="cog" size={24} color="#454551" />
-          <Text style={styles.textDrawer} >
-            Setting
-          </Text>
+          <Text style={styles.textDrawer}>Setting</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => route.replace("/")} style={styles.row}>
           <Icon source="logout" size={24} color="#454551" />
-          <Text style={styles.textDrawer} >Log out</Text>
+          <Text style={styles.textDrawer}>Log out</Text>
         </TouchableOpacity>
       </View>
-      <FormNewSchedule visible={visible} onDismiss={hideModal} handleSubmit={() => console.log('press')} />
+      <FormNewSchedule
+        visible={visible}
+        onDismiss={hideModal}
+        handleSubmit={(values: any) => {
+          console.log(values);
+          hideModal();
+        }}
+      />
     </View>
   );
 }
@@ -104,10 +110,10 @@ const styles = StyleSheet.create({
   textDrawer: {
     fontSize: 16,
     color: "#454551",
-    fontFamily: 'RC_Medium'
+    fontFamily: "RC_Medium",
   },
-  row:{
-    flexDirection: 'row',
-    gap: 40
-  }
-})
+  row: {
+    flexDirection: "row",
+    gap: 40,
+  },
+});

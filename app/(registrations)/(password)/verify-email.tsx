@@ -16,7 +16,7 @@ const VerifyEmailScreen = () => {
   // const [email, setEmail] = React.useState("");
   return (
     <SafeAreaView style={styles.flexVertical}>
-      <Text style={styles.typoHeading}>Sign In to Planner</Text>
+      <Text style={styles.typoHeading}>Forgot Password?</Text>
       <Text style={styles.typoTitle}>Verify your email to update password</Text>
       <Formik
         initialValues={initialValues}
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   form: {
-    width: width * 0.4,
+    width: width * 0.8,
   },
   errorText: {
     fontSize: 14,

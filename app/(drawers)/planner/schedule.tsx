@@ -1,32 +1,53 @@
 import { View, Text, StyleSheet, Dimensions, ScrollView, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { List, Checkbox, Icon, Divider } from 'react-native-paper';
+import { List, Icon, SegmentedButtons } from 'react-native-paper';
 import { ButtonComponent, CustomListItem } from '@/components';
 
 const ScheduleScreen = () => {
+  const [value, setValue] = useState('')
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{flexDirection: 'row', justifyContent: 'space-between', padding: 10, marginBottom: 20, marginHorizontal: 10}}>
-        <ButtonComponent label='New place' icon='plus' height={40} mode='outlined' onPress={() => console.log('press')} />
-        <View style={{flexDirection: 'row', gap: 15}}>
-          <Icon source='share-variant-outline' size={20} />
-          <Icon source='chat-processing-outline' size={20} />
-          <Icon source='delete-outline' size={20} />
-          <Text>Save</Text>
-        </View>
+      <View style={{flexDirection: 'row', justifyContent: 'flex-end', padding: 10, marginBottom: 20, marginHorizontal: 10, alignItems: 'center'}}>
+        <ButtonComponent label='Add place' icon='plus' height={40} mode='outlined' onPress={() => console.log('press')} />
       </View>
       <View>
         <View style={styles.wrapper}>
           <View style={{marginBottom: 20}}>
-            <Text style={styles.headerText}>Location</Text>
+            <View style={{flexDirection: 'row', marginBottom: 10, justifyContent: 'space-between'}}>
+              <Text style={styles.headerText}>Location</Text>
+              <View style={{flexDirection: 'row', gap: 20, alignItems:'center'}}>
+                <TouchableOpacity>
+                  <Icon source='robot-outline' size={20} />
+                </TouchableOpacity>
+                <SegmentedButtons
+                  value={value}
+                  onValueChange={setValue}
+                  density='small'
+                  buttons={[
+                    {
+                      value: 'list',
+                      icon: 'format-list-bulleted',
+                      checkedColor: '#6750a4',
+                      style: {borderWidth: .5, borderEndWidth: 0, minWidth: 20, maxWidth: 50}
+                    },
+                    {
+                      value: 'map',
+                      icon: 'map',
+                      checkedColor: '#6750a4',
+                      style: {borderWidth: .5, borderStartWidth: 0, minWidth: 20, maxWidth: 50}
+                    }
+                  ]}
+                />
+              </View>
+            </View>
             <View style={{flexDirection: 'row', marginBottom: 10, justifyContent: 'space-between'}}>
               <View style={{flexDirection: 'row', gap: 20}}>
-                <Text style={styles.headerTitle}>Day</Text>
+                <Text style={styles.headerTitle}>Budget</Text>
                 <Text style={styles.headerTitle}>Traveller</Text>
               </View>
-              <Text style={styles.headerTitle}>Budget</Text>
+              <Text style={styles.headerTitle}>Day</Text>
             </View>
           </View>
           <ScrollView showsVerticalScrollIndicator={false}>
@@ -69,11 +90,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   wrapper: {
-    width: Dimensions.get('screen').width * 0.7,
+    width: Dimensions.get('screen').width * 0.9,
     height: '100%',
-    paddingTop: 20,
-    alignSelf: 'center',
-    // alignItems: 'center',
+    alignSelf: 'center'
   },
   line: {
     marginLeft: 40,

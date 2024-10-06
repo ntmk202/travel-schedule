@@ -9,7 +9,7 @@ export default function SettingScreen() {
 
   return (
     <SafeAreaView
-      style={{ flex: 1, alignItems: "center", paddingTop: 40, backgroundColor: '#fff' }}
+      style={{ flex: 1, paddingHorizontal:20, backgroundColor: '#fff' }}
     >
       <View>
         <ToggleComponent

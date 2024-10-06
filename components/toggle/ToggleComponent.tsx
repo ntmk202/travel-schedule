@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         width: 'auto',
         flexDirection: 'row',
         justifyContent: "space-between",
-        marginVertical: 30
+        marginVertical: 10
     },
     label: {
         fontSize: 24,
@@ -32,6 +32,6 @@ const styles = StyleSheet.create({
     desc: {
         fontSize: 14,
         fontFamily: 'RC_Light',
-        maxWidth: '70%'
+        maxWidth: '85%'
     }
 })

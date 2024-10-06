@@ -39,7 +39,7 @@ const FormNewPasswordModal = ({ visible, onDismiss }: any) => {
             errors,
             touched,
           }) => (
-            <View style={{ width: "80%" }}>
+            <View style={{ width: "90%" }}>
               <TextInputComponent
                 label="Old Password"
                 text={values.oldPassword}
@@ -98,8 +98,8 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
     alignItems: "center",
-    padding: 20,
-    width: width * 0.6,
+    padding: 10,
+    width: width * 0.9,
     borderRadius: 10,
   },
   title: {

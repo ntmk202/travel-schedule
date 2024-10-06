@@ -19,7 +19,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
     <View style={styles.container}>
       <Text style={styles.title}>How many days for your trip?</Text>
       <CalendarPicker
-        width={400} 
+        width={260} 
         allowRangeSelection
         minDate={minDate}
         maxRangeDuration={10}
@@ -39,13 +39,13 @@ export default DateRangePicker;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
+    paddingVertical: 10,
     backgroundColor: '#fff',
   },
   title: {
     fontFamily: 'RC_Regular',
     fontSize: 20,
-    marginStart: 30,
+    // marginStart: -10,
     marginBottom: 10,
   },
 });

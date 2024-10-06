@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import { View, FlatList, TouchableOpacity, StyleSheet } from "react-native";
+import { View, FlatList, TouchableOpacity, StyleSheet, Keyboard } from "react-native";
 import { TextInput, List, Text } from "react-native-paper";
 
 interface AutocompleteComponentProps {
-  // value: string;
+  query: string;
+  onQueryChange: (text: string) => void;
   label: string;
-  data: { title: string; desc: string; icon: string }[];
+  data: {id: string; title: string; desc: string; icon: string}[];
 }
 
-const AutocompleteComponent = ({  label, data }: AutocompleteComponentProps) => {
-  const [query, setQuery] = useState("");
+const AutocompleteComponent = ({ query, onQueryChange, label, data }: AutocompleteComponentProps) => {
   const [filteredData, setFilteredData] = useState(data);
   const [showList, setShowList] = useState(false);
 
   const handleSearch = (text: string) => {
-    setQuery(text);
+    onQueryChange(text);
     setShowList(true);
     if (text.length > 0) {
       const results = data.filter((item) =>
@@ -26,13 +26,11 @@ const AutocompleteComponent = ({  label, data }: AutocompleteComponentProps) => 
     }
   };
 
-  const handleSelectItem = (item: string) => {
-    setQuery(item);
+  const handleSelectItem = (item:any) => {
+    onQueryChange(item);
     setShowList(false);
     setFilteredData(data);
   };
-
-  // value = query
 
   return (
     <View style={styles.field}>
@@ -45,15 +43,20 @@ const AutocompleteComponent = ({  label, data }: AutocompleteComponentProps) => 
         mode="outlined"
         onChangeText={handleSearch}
         outlineColor="#a6a6a6"
-        onFocus={() => setShowList(true)}
+        onFocus={() => {
+          Keyboard.dismiss();  
+          setShowList(true);
+        }}
+        onBlur={() => Keyboard.dismiss()}
       />
       {showList && filteredData.length > 0 && (
         <FlatList
           data={filteredData}
-          keyExtractor={(item) => item.title}
+          keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <TouchableOpacity onPress={() => handleSelectItem(item.title)}>
               <List.Item
+                key={item.id}
                 title={item.title}
                 description={item.desc}
                 style={styles.item}
@@ -63,6 +66,7 @@ const AutocompleteComponent = ({  label, data }: AutocompleteComponentProps) => 
             </TouchableOpacity>
           )}
           style={styles.list}
+          nestedScrollEnabled={true}
         />
       )}
     </View>
