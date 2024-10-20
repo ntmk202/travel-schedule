@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const ChatboxModal = () => {
+const MapList = () => {
   return (
     <View>
-      <Text>ChatboxModal</Text>
+      <Text>MapList</Text>
     </View>
   )
 }
 
-export default ChatboxModal
+export default MapList
 
 const styles = StyleSheet.create({})

@@ -1,13 +1,22 @@
-import { Modal, StyleSheet, Text, View } from 'react-native'
+import { Dimensions, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import { Surface } from 'react-native-paper'
+import { Icon, Surface } from 'react-native-paper'
+import GroupAvatar from '../avatar/GroupAvatar'
 
 const ChatModal = ({ visible, onDismiss }: any) => {
   return (
     <Modal visible={visible} animationType='slide' transparent={true}>
       <View style={styles.container}>
         <Surface elevation={2} style={styles.surface}>
-          <Text onPress={onDismiss} >ChatModal</Text>
+          <View style={[styles.row, styles.bar]}>
+            <View style={[styles.row, {width: '80%'}]}>
+              <GroupAvatar />
+              <Text style={styles.title}>Chat</Text>
+            </View>
+            <TouchableOpacity onPress={onDismiss}>
+              <Icon source='close-circle-outline' size={24} />
+            </TouchableOpacity>
+          </View>
         </Surface>
       </View>
     </Modal>
@@ -19,21 +28,29 @@ export default ChatModal
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)'
+    justifyContent: "flex-end",
+    backgroundColor: 'rgba(0, 0, 0, 0.2)'
   },
   surface: { 
-    padding: 30,
+    height : Dimensions.get('screen').height * 0.9,
     backgroundColor: '#fff', 
     borderRadius: 10
   },
+  bar:{
+    borderBottomWidth: 1,
+    borderBottomColor: '#adadad',
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    justifyContent: 'space-between'
+  },
   row: {
     flexDirection: "row",
-    gap: 40,
+    gap: 10,
+    alignItems: 'center'
   },
   title: {
     fontSize: 20,
-    fontFamily: 'RC_Bold',
+    fontFamily: 'RC_Medium',
+    
   },
 })

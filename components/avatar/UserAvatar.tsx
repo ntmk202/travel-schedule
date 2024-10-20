@@ -1,16 +1,17 @@
 import { Image } from "react-native";
 import React from "react";
+import { Avatar } from "react-native-paper";
 
-export default function UserAvatar({customSource, uri}:any) {
+export default function UserAvatar({ customSource, uri, size }: any) {
   return (
-    <Image
-      source={customSource == undefined ?  require( "@/assets/images/default-user-icon.jpg" ) :{uri: uri}}
-      style={{
-        width: 100,
-        height: 100,
-        borderRadius: 50,
-        alignSelf: "center",
-      }}
+    <Avatar.Image
+      size={size}
+      style={{ alignSelf: "center" }}
+      source={
+        customSource == undefined
+          ? require("@/assets/images/default-user-icon.jpg")
+          : { uri: uri }
+      }
     />
   );
 }

@@ -1,7 +1,7 @@
 import { View, Text, Modal, StyleSheet, TouchableOpacity, TextInput, ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
 import ButtonComponent from "../button/ButtonComponent";
-import { RadioButton, Surface } from "react-native-paper";
+import { Icon, RadioButton, Snackbar, Surface } from "react-native-paper";
 import TextInputComponent from "../input/TextInputComponent";
 import * as Clipboard from 'expo-clipboard';
 import AutocompleteComponent from "../input/AutoComplete";
@@ -17,6 +17,7 @@ const ShareModal = ({ visible, onDismiss, onSubmit }: any) => {
   const [access, setAccess] = useState('');
   const [url, setUrl] = useState('');
   const [role, setRole] = useState('read');
+  const [snackbarVisible, setSnackbarVisible] = useState(false);
   const baseUrl = "http://localhost:8081/planner/schedule";
   const id = 1;  
 
@@ -40,15 +41,25 @@ const ShareModal = ({ visible, onDismiss, onSubmit }: any) => {
   const handleSubmit = () => {  
     Clipboard.setString(url);
     onSubmit({ people, url, access, role });
-    onDismiss();
+    setSnackbarVisible(true);
   };
 
   return (
     <Modal visible={visible} animationType="slide" transparent={true}>
       <View style={styles.container}>
         <Surface elevation={2} style={styles.surface}>
-          <Text style={styles.title}>Share your schedule</Text>
-          <View>
+          <View style={[styles.row, styles.bar]}>
+            <Text style={styles.title}>Share your schedule</Text>
+            <View style={[styles.row, {gap: 10}]}>
+              <TouchableOpacity onPress={handleSubmit}>
+                <Icon source='content-copy' size={24} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={onDismiss}>
+                <Icon source='close-circle-outline' size={24} />
+              </TouchableOpacity>
+            </View>
+          </View>
+          <View style={{padding: 20}}>
             <View style={[styles.row, {alignItems: 'flex-end', justifyContent:'space-between', gap: 5}]}>
               <View style={{width: '65%'}}>
                 <TextInputComponent 
@@ -74,21 +85,15 @@ const ShareModal = ({ visible, onDismiss, onSubmit }: any) => {
                 <RadioButton.Item label="Edit" value="edit" />
               </View>
             </RadioButton.Group>
-            <View style={[styles.row, {justifyContent:'flex-end'}]}>
-              <ButtonComponent
-                label="Cancel"
-                mode="elevated"
-                onPress={onDismiss}
-                marginTop={20}
-              />
-              <ButtonComponent
-                label="Copy link"
-                mode="contained"
-                onPress={handleSubmit}
-                marginTop={20}
-              />
-            </View>
           </View>
+          <Snackbar
+            style={styles.snackbar}
+            visible={snackbarVisible}
+            onDismiss={() => setSnackbarVisible(false)} 
+            duration={3000}
+          >
+            Copied!
+          </Snackbar>
         </Surface>
       </View>
     </Modal>
@@ -104,7 +109,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)'
   },
   surface: { 
-    padding: 20,
     backgroundColor: '#fff', 
     borderRadius: 10,
   },
@@ -112,13 +116,24 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 40,
   },
+  bar:{
+    borderBottomWidth: 1,
+    borderBottomColor: '#adadad',
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    justifyContent: 'space-between'
+  },
   title: {
     fontSize: 20,
-    fontFamily: 'RC_Bold',
+    fontFamily: 'RC_Medium',
   },
   personText: {
     fontFamily: 'RC_Regular',
     fontSize: 16,
     marginTop: 10,
+  }, 
+  snackbar: {
+    width: 90,
+    alignSelf: 'center'
   }
 });

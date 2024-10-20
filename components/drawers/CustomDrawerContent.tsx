@@ -23,7 +23,7 @@ export default function CustomDrawerContent(props: any) {
       <DrawerContentScrollView {...props} scrollEnabled={false}>
         <View style={{ padding: 10, paddingTop: 20 }}>
           <View>
-            <UserAvatar />
+            <UserAvatar size={100}/>
             <Text
               style={{
                 fontSize: 18,

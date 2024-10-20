@@ -18,7 +18,7 @@ const ProfileScreen = () => {
       <View>
         <View style={{ width: width * 0.8 }}>
           <View>
-            <UserAvatar />
+            <UserAvatar size={100} />
           </View>
           <TextInputComponent
             label="Username"

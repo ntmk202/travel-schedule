@@ -2,7 +2,7 @@ import { Dimensions, Modal, StyleSheet, Text, TouchableOpacity, View } from 'rea
 import React from 'react'
 import { Icon, Surface } from 'react-native-paper'
 
-const DetailScheduleModal = ({ visible, onDismiss }: any) => {
+const ChatbotModal = ({ visible, onDismiss }: any) => {
   return (
     <Modal visible={visible} animationType='slide' transparent={true}>
       <View style={styles.container}>
@@ -10,7 +10,7 @@ const DetailScheduleModal = ({ visible, onDismiss }: any) => {
           <View style={[styles.row, styles.bar]}>
             <View style={[styles.row, {width: '80%'}]}>
               <Icon source='robot-outline' size={30} />
-              <Text style={styles.title}>Detail</Text>
+              <Text style={styles.title}>AI planner</Text>
             </View>
             <TouchableOpacity onPress={onDismiss}>
               <Icon source='close-circle-outline' size={24} />
@@ -22,7 +22,7 @@ const DetailScheduleModal = ({ visible, onDismiss }: any) => {
   )
 }
 
-export default DetailScheduleModal
+export default ChatbotModal
 
 const styles = StyleSheet.create({
   container: {
