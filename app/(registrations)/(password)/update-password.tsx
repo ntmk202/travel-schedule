@@ -5,6 +5,8 @@ import { ButtonComponent, TextInputComponent } from '@/components';
 import { Formik } from 'formik';
 import { FixPasswordSchema, UpdatePasswordFormValues } from '@/constants';
 import { useRouter } from 'expo-router';
+import { auth } from '@/configs/FirebaseConfig';
+import { updatePassword } from 'firebase/auth';
 
 const { width } = Dimensions.get("window");
 
@@ -15,6 +17,20 @@ const initialValues: UpdatePasswordFormValues = {
 
 const UpdatePasswordScreen = () => {
   const route = useRouter()
+  const handleUpdatePassword = async (password:string) => {
+    const user = auth.currentUser;
+    if (user) {
+      try {
+        await updatePassword(user, password);
+        console.log("Mật khẩu đã được cập nhật thành công");
+        route.push('/signin');
+      } catch (error: any) {
+        console.error("Cập nhật mật khẩu thất bại:", error.message);
+      }
+    } else {
+      console.error("Không tìm thấy người dùng");
+    }
+  };
   return (
     <SafeAreaView style={styles.flexVertical}>
       <Text style={styles.typoHeading}>Create New Password</Text>
@@ -23,7 +39,7 @@ const UpdatePasswordScreen = () => {
         initialValues={initialValues}
         validationSchema={FixPasswordSchema}
         onSubmit={(values) => {
-          console.log(values);
+          handleUpdatePassword(values.password);
         }}
       >
         {({

@@ -7,6 +7,8 @@ import { Icon } from "react-native-paper";
 import ButtonComponent from "../button/ButtonComponent";
 import UserAvatar from "../avatar/UserAvatar";
 import FormNewSchedule from "../modal/FormNewSchedule";
+import { signOut } from "firebase/auth";
+import { auth } from "@/configs/FirebaseConfig";
 
 export default function CustomDrawerContent(props: any) {
   const { top, bottom } = useSafeAreaInsets();
@@ -15,6 +17,17 @@ export default function CustomDrawerContent(props: any) {
 
   const showModal = () => setVisible(true);
   const hideModal = () => setVisible(false);
+
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        route.push("/signin");
+        console.log('User signed out!');
+      })
+      .catch((error) => {
+        console.error('Error signing out: ', error);
+      });
+  };
 
   const hiddenRoutes = ["account/profile", "settings/config"];
 
@@ -89,7 +102,7 @@ export default function CustomDrawerContent(props: any) {
           <Icon source="cog" size={24} color="#454551" />
           <Text style={styles.textDrawer}>Setting</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => route.replace("/")} style={styles.row}>
+        <TouchableOpacity onPress={handleSignOut} style={styles.row}>
           <Icon source="logout" size={24} color="#454551" />
           <Text style={styles.textDrawer}>Log out</Text>
         </TouchableOpacity>

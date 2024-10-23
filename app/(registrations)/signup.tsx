@@ -5,24 +5,50 @@ import { ButtonComponent, TextInputComponent } from "@/components";
 import { SignUpFormValues, SignUpSchema } from "@/constants";
 import { useRouter } from "expo-router";
 import { Formik } from "formik";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "@/configs/FirebaseConfig";
+import { doc, setDoc } from 'firebase/firestore';
 
 const { width } = Dimensions.get("window");
 const initialValues: SignUpFormValues = {
   email: "",
   password: "",
-  username: ""
+  username: "",
+  avatar: null,
 };
 
 const SignupScreen = () => {
   const route = useRouter()
+
   return (
     <SafeAreaView style={styles.flexVertical}>
       <Text style={styles.typoHeading}>Sign Up for Planner</Text>
       <Formik
         initialValues={initialValues}
         validationSchema={SignUpSchema}
-        onSubmit={(values) => {
-          console.log(values);
+        onSubmit={async (values, { setErrors }) => {
+          try {
+            const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
+            const user = userCredential.user;
+
+            await setDoc(doc(db, "accounts", user.uid), {
+              username: values.username,
+              email: values.email,
+              avatar: values.avatar,
+              createdAt: Date(),
+              updateAt: new Date(),
+            });
+
+            console.log("User registered and data saved to Firestore:", user);
+            route.push('/signin');
+          } catch (error:any) {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorMessage, errorCode);
+            if (errorCode === "auth/email-already-in-use") {
+              setErrors({ email: "Email already in use" });
+            }
+          }
         }}
       >
         {({
@@ -124,6 +150,7 @@ const styles = StyleSheet.create({
   errorText: {
     fontSize: 14,
     color: "red",
-    marginBottom: 10,
+    paddingTop: 5,
+    paddingStart: 5
   },
 });

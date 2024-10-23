@@ -18,6 +18,7 @@ export const SignUpSchema = Yup.object().shape({
     .required("Password is required"),
   username: Yup.string()
     .required("Username is required"),
+  // avatar: Yup.string()
 });
 
 export const VerifyEmailSchema = Yup.object().shape({

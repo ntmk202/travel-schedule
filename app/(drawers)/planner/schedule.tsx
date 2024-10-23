@@ -9,10 +9,10 @@ import {
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { List, Icon, SegmentedButtons } from "react-native-paper";
-import { ButtonComponent, ChatbotModal, CustomListItem, DetailScheduleModal } from "@/components";
+import { ButtonComponent, ChatbotModal, CustomListItem, DetailList, DetailScheduleModal, MapList } from "@/components";
 
 const ScheduleScreen = () => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState("list");
   const [visibleChatbot, setVisibleChatbot] = useState(false);
   const [visibleDetail, setVisibleDetail] = useState(false);
 
@@ -93,31 +93,11 @@ const ScheduleScreen = () => {
         </View>
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={{ marginBottom: 20 }}>
-            <List.Accordion
-              id="1"
-              title="Day 1"
-              description="17/09/2024"
-              style={styles.accordionStyle}
-              titleStyle={styles.titleStyle}
-              descriptionStyle={styles.descriptionStyle}
-              right={({ isExpanded }) => (
-                <Icon
-                  source={isExpanded ? "circle-slice-8" : "circle-outline"}
-                  size={24}
-                  color={isExpanded ? "#6750a4" : "#c3c3c3"}
-                />
-              )}
-            >
-              <View style={styles.line}>
-                <CustomListItem
-                  title="Hotel Rest"
-                  description="Palm Springs Hotel"
-                  time="11:00 am"
-                  icon="map-marker-outline"
-                  onPress={() => setVisibleDetail(true)}
-                />
-              </View>
-            </List.Accordion>
+            {value === "list" ? (
+              <DetailList onPress={() => setVisibleDetail(true)} />
+            ) : (
+              <MapList />
+            )}
           </View>
         </ScrollView>
       </View>

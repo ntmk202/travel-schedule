@@ -1,10 +1,12 @@
-import { View, Text, StyleSheet, Dimensions } from "react-native";
+import { View, Text, StyleSheet, Dimensions, ToastAndroid } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ButtonComponent, TextInputComponent } from "@/components";
 import { Formik } from "formik";
 import { SignInFormValues, SignInSchema } from "@/constants";
 import { useRouter } from "expo-router";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/configs/FirebaseConfig";
 
 const { width } = Dimensions.get("window");
 const initialValues: SignInFormValues = {
@@ -20,9 +22,22 @@ const SigninScreen = () => {
       <Formik
         initialValues={initialValues}
         validationSchema={SignInSchema}
-        onSubmit={(values) => {
-          console.log(values);
-          route.push('/planner/schedule')
+        onSubmit={(values, {setErrors}) => {
+          signInWithEmailAndPassword(auth, values.email, values.password)
+          .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            console.log(user)
+            route.push('/planner/schedule')
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode, errorMessage)
+            if(errorCode==='auth/invalid-credential'){
+              setErrors({email:'Invalid email or password', password:'Invalid email or password'})
+            }
+          });
         }}
       >
         {({
@@ -117,6 +132,7 @@ const styles = StyleSheet.create({
   errorText: {
     fontSize: 14,
     color: "red",
-    marginBottom: 10,
+    paddingTop: 5,
+    paddingStart: 5
   },
 });

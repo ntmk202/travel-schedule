@@ -19,7 +19,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anonymous.travelschedule"
     },
     "web": {
       "bundler": "metro",
@@ -28,7 +29,8 @@
     },
     "plugins": [
       "expo-router",
-      "expo-font"
+      "expo-font",
+      "@vietmap/vietmap-gl-react-native"
     ],
     "experiments": {
       "typedRoutes": true

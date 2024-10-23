@@ -5,6 +5,8 @@ import { ButtonComponent, TextInputComponent } from "@/components";
 import { Formik } from "formik";
 import { VerifyEmailFormValues, VerifyEmailSchema } from "@/constants";
 import { useRouter } from "expo-router";
+import { sendPasswordResetEmail } from "firebase/auth";
+import { auth } from "@/configs/FirebaseConfig";
 
 const { width } = Dimensions.get("window");
 const initialValues: VerifyEmailFormValues = {
@@ -13,7 +15,15 @@ const initialValues: VerifyEmailFormValues = {
 
 const VerifyEmailScreen = () => {
   const route = useRouter();
-  // const [email, setEmail] = React.useState("");
+  const handleEmailVerification = async (email: string) => {
+    try {
+      await sendPasswordResetEmail(auth, email);
+      console.log("Email khôi phục mật khẩu đã được gửi");
+      route.push("/signin");
+    } catch (error:any) {
+      console.error("Gửi email xác thực thất bại:", error.message);
+    }
+  };
   return (
     <SafeAreaView style={styles.flexVertical}>
       <Text style={styles.typoHeading}>Forgot Password?</Text>
@@ -22,8 +32,7 @@ const VerifyEmailScreen = () => {
         initialValues={initialValues}
         validationSchema={VerifyEmailSchema}
         onSubmit={(values) => {
-          console.log(values);
-          route.push('/update-password')
+          handleEmailVerification(values.email)
         }}
       >
         {({
