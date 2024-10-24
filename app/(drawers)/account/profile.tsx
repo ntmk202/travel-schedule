@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { ButtonComponent, FormNewPasswordModal, TextInputComponent, UserAvatar } from "@/components";
 import { auth, db, storage } from "@/configs/FirebaseConfig"; 
 import { doc, getDoc, updateDoc } from "firebase/firestore"; 
-import { reload, sendEmailVerification, updateEmail } from "firebase/auth"; 
+import { sendEmailVerification, updateEmail } from "firebase/auth"; 
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage"; 
 import * as ImagePicker from "expo-image-picker"; 
 import { Icon } from "react-native-paper";
@@ -19,20 +19,18 @@ const ProfileScreen = () => {
   const [uploading, setUploading] = useState(false);
   const user = auth.currentUser;
 
-  useEffect(() => {
+  useEffect(() => { 
     const loadUserData = async () => {
       if (user) {
-        const docRef = doc(db, "accounts", user.uid);
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-          const userData = docSnap.data();
-          setUsername(userData.username);
-          setEmail(userData.email);
-          setAvatar(userData.avatar); 
+        const userDoc = await getDoc(doc(db, "users", user.uid));
+        if (userDoc.exists()) {
+          const userData = userDoc.data();
+          setUsername(userData.username || "username");
+          setEmail(userData.email || "");
+          setAvatar(userData.avatar || null);
         }
       }
     };
-
     loadUserData();
   }, [user]);
 
@@ -73,14 +71,11 @@ const ProfileScreen = () => {
     if (user) {
       try {
         let avatarURL = avatar;
-  
-        // If avatar is a local URI, upload it
         if (avatar && avatar.startsWith("file://")) {
           avatarURL = await uploadImage();
         }
   
-        // Update user data in Firestore
-        const docRef = doc(db, "accounts", user.uid);
+        const docRef = doc(db, "users", user.uid);
         await updateDoc(docRef, {
           username: username,
           email: email,
@@ -90,7 +85,7 @@ const ProfileScreen = () => {
   
         if (email !== user.email) {
           await updateDoc(docRef, { newEmail: email });
-          
+          await updateEmail(user, email);
           await sendEmailVerification(user);
           alert("A verification email has been sent to your new email address.");
         }
@@ -158,7 +153,6 @@ const style = StyleSheet.create({
   },
   typoText: {
     fontFamily: "RC_Regular",
-    // height: 0,
     top: 35,
     marginEnd: 10,
     fontSize: 20,

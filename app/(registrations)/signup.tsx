@@ -5,20 +5,19 @@ import { ButtonComponent, TextInputComponent } from "@/components";
 import { SignUpFormValues, SignUpSchema } from "@/constants";
 import { useRouter } from "expo-router";
 import { Formik } from "formik";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from "@/configs/FirebaseConfig";
-import { doc, setDoc } from 'firebase/firestore';
+import { useAuth } from "@/configs/authConfig";
 
 const { width } = Dimensions.get("window");
 const initialValues: SignUpFormValues = {
   email: "",
   password: "",
   username: "",
-  avatar: null,
+  avatar: null
 };
 
 const SignupScreen = () => {
   const route = useRouter()
+  const { signup } = useAuth()
 
   return (
     <SafeAreaView style={styles.flexVertical}>
@@ -28,25 +27,13 @@ const SignupScreen = () => {
         validationSchema={SignUpSchema}
         onSubmit={async (values, { setErrors }) => {
           try {
-            const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
-            const user = userCredential.user;
-
-            await setDoc(doc(db, "accounts", user.uid), {
-              username: values.username,
-              email: values.email,
-              avatar: values.avatar,
-              createdAt: Date(),
-              updateAt: new Date(),
-            });
-
-            console.log("User registered and data saved to Firestore:", user);
-            route.push('/signin');
-          } catch (error:any) {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorMessage, errorCode);
-            if (errorCode === "auth/email-already-in-use") {
+            await signup(values.email, values.password, values.username, values.avatar);
+            // route.push("/signin");
+          } catch (error: any) {
+            if (error.message.includes("email-already-in-use")) {
               setErrors({ email: "Email already in use" });
+            } else {
+              console.error(error.message);
             }
           }
         }}

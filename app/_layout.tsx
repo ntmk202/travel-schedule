@@ -1,5 +1,6 @@
+import { AuthContextProvider, useAuth } from '@/configs/authConfig';
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
+import { Slot, useRouter, useSegments } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
@@ -8,6 +9,23 @@ import 'react-native-reanimated';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 SplashScreen.preventAutoHideAsync();
+
+const MainLayout=()=>{
+  const {isAuthenticated} = useAuth();
+  const segments = useSegments()
+  const route = useRouter()
+
+  useEffect(() => {
+    if(typeof isAuthenticated=='undefined') return
+    const inApp = segments[0]=='(drawers)'
+    if(isAuthenticated && !inApp){
+      route.replace('/account/profile')
+    }else if(isAuthenticated==false){
+      route.replace('/')
+    }
+  }, [isAuthenticated])
+  return <Slot/>
+}
 
 export default function RootLayout() { 
     const [loaded, error] = useFonts({
@@ -29,15 +47,13 @@ export default function RootLayout() {
       }
     
       return (
-        <PaperProvider>
-          <SafeAreaProvider>
-            <Stack screenOptions={{headerShown: false}}>
-              <Stack.Screen name="index" />
-              <Stack.Screen name="(registrations)" />
-              <Stack.Screen name="(drawers)" />
-            </Stack>
-            <StatusBar style="auto" />
-          </SafeAreaProvider>
-        </PaperProvider>
+        <AuthContextProvider>
+          <PaperProvider>
+            <SafeAreaProvider>
+              <MainLayout/>
+              <StatusBar style="auto" />
+            </SafeAreaProvider>
+          </PaperProvider>
+        </AuthContextProvider>
       );
 }

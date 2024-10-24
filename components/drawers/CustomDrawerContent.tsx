@@ -7,26 +7,37 @@ import { Icon } from "react-native-paper";
 import ButtonComponent from "../button/ButtonComponent";
 import UserAvatar from "../avatar/UserAvatar";
 import FormNewSchedule from "../modal/FormNewSchedule";
-import { signOut } from "firebase/auth";
-import { auth } from "@/configs/FirebaseConfig";
+import { auth, db } from "@/configs/FirebaseConfig";
+import { doc, getDoc } from "firebase/firestore";
+import { useAuth } from "@/configs/authConfig";
 
 export default function CustomDrawerContent(props: any) {
-  const { top, bottom } = useSafeAreaInsets();
   const route = useRouter();
+  const {logout} = useAuth()
+  const { top, bottom } = useSafeAreaInsets();
   const [visible, setVisible] = React.useState(false);
-
-  const showModal = () => setVisible(true);
+  const [username, setUsername] = React.useState("");
+  const [avatar, setAvatar] = React.useState<string | null>(null) 
   const hideModal = () => setVisible(false);
+  
+  React.useEffect(() => {
+    const loadUserData = async () => {
+      const user = auth?.currentUser; 
+      if (user) {
+        const userDoc = await getDoc(doc(db, "users", user?.uid));
+        if (userDoc?.exists()) {
+          const userData = userDoc?.data();
+          setUsername(userData?.username || ""); 
+          setAvatar(userData?.avatar || null); 
+        }
+      }
+    };
 
-  const handleSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        route.push("/signin");
-        console.log('User signed out!');
-      })
-      .catch((error) => {
-        console.error('Error signing out: ', error);
-      });
+    loadUserData();
+  }, []);
+
+  const handleSignOut = async () => {
+    await logout()
   };
 
   const hiddenRoutes = ["account/profile", "settings/config"];
@@ -36,7 +47,7 @@ export default function CustomDrawerContent(props: any) {
       <DrawerContentScrollView {...props} scrollEnabled={false}>
         <View style={{ padding: 10, paddingTop: 20 }}>
           <View>
-            <UserAvatar size={100}/>
+            <UserAvatar size={100} uri={avatar}/>
             <Text
               style={{
                 fontSize: 18,
@@ -45,7 +56,7 @@ export default function CustomDrawerContent(props: any) {
                 fontFamily: "RC_Regular",
               }}
             >
-              username
+              {username}
             </Text>
           </View>
           <View>
@@ -57,7 +68,7 @@ export default function CustomDrawerContent(props: any) {
               label="Add Schedule"
               labelStyle={{ fontSize: 16 }}
               customstyle={{ borderRadius: 5 }}
-              onPress={showModal}
+              onPress={() => setVisible(true)}
             />
           </View>
         </View>

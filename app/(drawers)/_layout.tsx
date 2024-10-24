@@ -17,7 +17,7 @@ const _layout = () => {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Drawer
-        drawerContent={CustomDrawerContent}
+         drawerContent={(props) => <CustomDrawerContent {...props} />}
         screenOptions={{
           drawerType: "slide",
           drawerActiveBackgroundColor: "#d8cef3",
