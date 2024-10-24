@@ -27,7 +27,8 @@ const SigninScreen = () => {
           try {
             await signin(values.email, values.password);  
           } catch (error: any) {
-            if (error.code === 'auth/invalid-credential') {
+            const errorCode = error.code;
+            if (errorCode === 'auth/invalid-credential') {
               setErrors({
                 email: 'Invalid email or password',
                 password: 'Invalid email or password',

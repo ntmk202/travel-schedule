@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword, EmailAuthProvider, onAuthStateChanged, reauthenticateWithCredential, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, updatePassword } from "firebase/auth";
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 import { auth, db } from "@/configs/FirebaseConfig"; // Adjust according to your Firebase config structure
-import { doc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
 interface AuthContextType {
   user: User | null;
@@ -10,13 +10,15 @@ interface AuthContextType {
   signin: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
   verifyEmail: (email:string) => Promise<void>;
-  changePassword: (oldPassword: string, newPassword: string) => Promise<void>
+  changePassword: (oldPassword: string, newPassword: string) => Promise<void>;
+  updateUserData: (userId: string) => Promise<any>;
 }
 
 interface User {
   email: string;
   username: string;
   avatar: string | null;
+  userId: string;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -30,15 +32,13 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | undefined>(undefined);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-        console.log('user:', firebaseUser)
-      if (firebaseUser) {
+    const unsubscribe = onAuthStateChanged(auth, async (user: any) => { 
+      console.log('user:', user);
+      if (user) {
         setIsAuthenticated(true);
-        setUser({
-          email: firebaseUser.email ?? "",
-          username: "", 
-          avatar: null, 
-        });
+        setUser(user)
+        await updateUserData(user.uid); 
+        
       } else {
         setIsAuthenticated(false);
         setUser(null);
@@ -46,7 +46,23 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     });
 
     return unsubscribe;
-  }, []);
+  }, []); 
+
+  const updateUserData = async (userId: string) => {
+    const userRef = doc(db, "users", userId);
+    const docSnap = await getDoc(userRef);
+    if (docSnap.exists()) {
+      let data = docSnap.data();
+      setUser((prevUser:any) => ({
+        ...prevUser,        
+        username: data.username, 
+        avatar: data.avatar
+      }));
+    } else {
+      console.log("No such document!");
+      return null; 
+    }
+  };
 
   const signup = async (email: string, password: string, username: string, avatar: string | null): Promise<void> => {
     try{
@@ -109,7 +125,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated, signup, signin, logout, verifyEmail, changePassword }}>
+    <AuthContext.Provider value={{ user, isAuthenticated, signup, signin, logout, verifyEmail, changePassword, updateUserData }}>
       {children}
     </AuthContext.Provider>
   );

@@ -4,34 +4,29 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { ButtonComponent, FormNewPasswordModal, TextInputComponent, UserAvatar } from "@/components";
 import { auth, db, storage } from "@/configs/FirebaseConfig"; 
 import { doc, getDoc, updateDoc } from "firebase/firestore"; 
-import { sendEmailVerification, updateEmail } from "firebase/auth"; 
+import { sendEmailVerification, updateEmail, updateProfile } from "firebase/auth"; 
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage"; 
 import * as ImagePicker from "expo-image-picker"; 
 import { Icon } from "react-native-paper";
+import { useAuth } from "@/configs/authConfig";
 
 const { width } = Dimensions.get("window");
 
 const ProfileScreen = () => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [avatar, setAvatar] = useState<string | null>(null) 
+  const userRef = auth.currentUser;
+  const { user, updateUserData } = useAuth();
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [avatar, setAvatar] = useState<string | null>(null);
   const [visible, setVisible] = useState(false);
   const [uploading, setUploading] = useState(false);
-  const user = auth.currentUser;
 
-  useEffect(() => { 
-    const loadUserData = async () => {
-      if (user) {
-        const userDoc = await getDoc(doc(db, "users", user.uid));
-        if (userDoc.exists()) {
-          const userData = userDoc.data();
-          setUsername(userData.username || "username");
-          setEmail(userData.email || "");
-          setAvatar(userData.avatar || null);
-        }
-      }
-    };
-    loadUserData();
+  useEffect(() => {
+    if (user) {
+      setUsername(user?.username ?? '');
+      setEmail(user?.email ?? '');
+      setAvatar(user?.avatar ?? null);
+    }
   }, [user]);
 
   const pickImage = async () => {
@@ -52,7 +47,7 @@ const ProfileScreen = () => {
 
     const response = await fetch(avatar);
     const blob = await response.blob();
-    const imageRef = ref(storage, `avatars/${user?.uid}`); 
+    const imageRef = ref(storage, `avatars/${userRef?.uid}`); 
 
     setUploading(true);
     try {
@@ -68,42 +63,43 @@ const ProfileScreen = () => {
   };
 
   const handleSave = async () => {
-    if (user) {
+    if (userRef) {
       try {
         let avatarURL = avatar;
         if (avatar && avatar.startsWith("file://")) {
           avatarURL = await uploadImage();
         }
-  
-        const docRef = doc(db, "users", user.uid);
+        
+        const docRef = doc(db, "users", userRef.uid);
         await updateDoc(docRef, {
           username: username,
           email: email,
           avatar: avatarURL,
-          updateAt: new Date(),
+          updatedAt: new Date(),
         });
-  
-        if (email !== user.email) {
-          await updateDoc(docRef, { newEmail: email });
-          await updateEmail(user, email);
-          await sendEmailVerification(user);
+      
+        await updateUserData(userRef.uid)
+
+        if (email !== userRef.email) {
+          await updateEmail(userRef, email);
+          await sendEmailVerification(userRef);
           alert("A verification email has been sent to your new email address.");
         }
-  
+        
         alert("Profile updated successfully!");
       } catch (error) {
-        console.error("Error updating profile:", error)
+        console.error("Error updating profile:", error);
       }
     }
-  };
+  }; 
 
   return (
     <SafeAreaView style={style.container}>
       <View>
         <View style={{ width: width * 0.8 }}>
           <View>
-            <UserAvatar size={100} uri={avatar}/>
-            <TouchableOpacity style={{position:'absolute', bottom: -10, backgroundColor: 'rgba(103, 80, 164,.5)', padding: 5, borderRadius: 10, alignSelf: 'center'}} onPress={pickImage}>
+            <UserAvatar size={100} uri={avatar} />
+            <TouchableOpacity style={{ position: 'absolute', bottom: -10, backgroundColor: 'rgba(103, 80, 164,.5)', padding: 5, borderRadius: 10, alignSelf: 'center' }} onPress={pickImage}>
               <Icon source="camera" size={20} color="#f7f7f7"/>
             </TouchableOpacity>
           </View>
@@ -111,13 +107,13 @@ const ProfileScreen = () => {
             label="Username"
             text={username}
             type="username"
-            onChangeText={(value: string) => setUsername(value)}
+            onChangeText={setUsername}
           />
           <TextInputComponent
             label="Email Address"
             text={email}
             type="emailAddress"
-            onChangeText={(value: string) => setEmail(value)}
+            onChangeText={setEmail}
           />
           <Text style={style.typoText} onPress={() => setVisible(true)}>
             Change Password
@@ -137,7 +133,7 @@ const ProfileScreen = () => {
           disable={uploading}
         />
       </View>
-      <FormNewPasswordModal visible={visible} onDismiss={() => setVisible(false)}  />
+      <FormNewPasswordModal visible={visible} onDismiss={() => setVisible(false)} />
     </SafeAreaView>
   );
 };
@@ -148,7 +144,6 @@ const style = StyleSheet.create({
   container: { 
     flex: 1,
     backgroundColor: '#fff',
-    // justifyContent: "center", 
     alignItems: "center" 
   },
   typoText: {

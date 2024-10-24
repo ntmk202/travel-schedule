@@ -19,7 +19,7 @@ const MainLayout=()=>{
     if(typeof isAuthenticated=='undefined') return
     const inApp = segments[0]=='(drawers)'
     if(isAuthenticated && !inApp){
-      route.replace('/account/profile')
+      route.replace('/planner/schedule')
     }else if(isAuthenticated==false){
       route.replace('/')
     }

@@ -7,35 +7,15 @@ import { Icon } from "react-native-paper";
 import ButtonComponent from "../button/ButtonComponent";
 import UserAvatar from "../avatar/UserAvatar";
 import FormNewSchedule from "../modal/FormNewSchedule";
-import { auth, db } from "@/configs/FirebaseConfig";
-import { doc, getDoc } from "firebase/firestore";
 import { useAuth } from "@/configs/authConfig";
 
 export default function CustomDrawerContent(props: any) {
   const route = useRouter();
-  const {logout} = useAuth()
+  const {user, logout} = useAuth()
   const { top, bottom } = useSafeAreaInsets();
   const [visible, setVisible] = React.useState(false);
-  const [username, setUsername] = React.useState("");
-  const [avatar, setAvatar] = React.useState<string | null>(null) 
   const hideModal = () => setVisible(false);
   
-  React.useEffect(() => {
-    const loadUserData = async () => {
-      const user = auth?.currentUser; 
-      if (user) {
-        const userDoc = await getDoc(doc(db, "users", user?.uid));
-        if (userDoc?.exists()) {
-          const userData = userDoc?.data();
-          setUsername(userData?.username || ""); 
-          setAvatar(userData?.avatar || null); 
-        }
-      }
-    };
-
-    loadUserData();
-  }, []);
-
   const handleSignOut = async () => {
     await logout()
   };
@@ -47,7 +27,7 @@ export default function CustomDrawerContent(props: any) {
       <DrawerContentScrollView {...props} scrollEnabled={false}>
         <View style={{ padding: 10, paddingTop: 20 }}>
           <View>
-            <UserAvatar size={100} uri={avatar}/>
+            <UserAvatar size={100} uri={user?.avatar}/>
             <Text
               style={{
                 fontSize: 18,
@@ -56,7 +36,7 @@ export default function CustomDrawerContent(props: any) {
                 fontFamily: "RC_Regular",
               }}
             >
-              {username}
+              {user?.username}
             </Text>
           </View>
           <View>
