@@ -2,7 +2,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { Icon, Surface } from "react-native-paper";
 
-const CustomListItem = ({ title, description, time, icon, onPress }: any) => {
+const CustomListItem = ({ title, description, icon, onPress }: any) => {
   return (
     <Surface style={styles.container}>
       <TouchableOpacity style={styles.touch} onPress={onPress}>
@@ -13,7 +13,6 @@ const CustomListItem = ({ title, description, time, icon, onPress }: any) => {
           <Text style={styles.title}>{title}</Text>
           <Text style={styles.description}>{description}</Text>
         </View>
-        <Text style={styles.time}>{time}</Text>
       </TouchableOpacity>
     </Surface>
   );
@@ -23,7 +22,7 @@ export default CustomListItem;
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 20,
+    marginVertical: 10,
     marginLeft: -30,
     marginRight: 20,
     marginBottom: 10,
@@ -51,16 +50,12 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    fontWeight: "bold",
     color: "#000",
+    fontFamily: 'RC_Medium'
   },
   description: {
     fontSize: 12,
     color: "gray",
-  },
-  time: {
-    fontSize: 14,
-    fontWeight: "bold",
-    color: "#000",
-  },
+    fontFamily: 'RC_Regular'
+  }
 });

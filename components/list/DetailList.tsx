@@ -1,35 +1,81 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import React from "react";
 import { Icon, List } from "react-native-paper";
 import CustomListItem from "../card/CustomListItem";
+import DetailScheduleModal from "../modal/DetailScheduleModal";
 
-const DetailList = ({ onPress }: any) => {
+const DetailList = ({ data }: any) => {
+  const [visibleDetail, setVisibleDetail] = React.useState(false);
+  const [selectedActivity, setSelectedActivity] = React.useState(null);
+  const formatDate = (date:any) => {
+    if (!date) return "";
+  
+    const validDate = date instanceof Date ? date : new Date(date);
+  
+    if (isNaN(validDate.getTime())) {
+      console.warn("Invalid date provided:", date);
+      return "";
+    }
+  
+    const dayOfWeek = validDate.toLocaleDateString("en-US", { weekday: "short" });
+    const day = validDate.getDate();
+    const month = validDate.toLocaleDateString("en-US", { month: "short" });
+    const year = validDate.getFullYear();
+  
+    const daySuffix = 
+      day % 10 === 1 && day !== 11 ? "st" :
+      day % 10 === 2 && day !== 12 ? "nd" :
+      day % 10 === 3 && day !== 13 ? "rd" : "th";
+  
+    return `${dayOfWeek}, ${day}${daySuffix} ${month}, ${year}`;
+  };
+  
   return (
-    <List.Accordion
-      id="1"
-      title="Day 1"
-      description="17/09/2024"
-      style={styles.accordionStyle}
-      titleStyle={styles.titleStyle}
-      descriptionStyle={styles.descriptionStyle}
-      right={({ isExpanded }) => (
-        <Icon
-          source={isExpanded ? "circle-slice-8" : "circle-outline"}
-          size={24}
-          color={isExpanded ? "#6750a4" : "#c3c3c3"}
+    <>
+      {data?.map((day: any, index: number) => (
+        <View style={{marginBottom: 20}} key={index}>
+          <List.Accordion
+            key={index}
+            title={day?.day}
+            description={formatDate(day?.date)}
+            style={styles.accordionStyle}
+            titleStyle={styles.titleStyle}
+            descriptionStyle={styles.descriptionStyle}
+            right={({ isExpanded }) => (
+              <Icon
+                source={isExpanded ? "circle-slice-8" : "circle-outline"}
+                size={24}
+                color={isExpanded ? "#6750a4" : "#c3c3c3"}
+              />
+            )}
+          >
+            <View style={styles.line}>
+              {day?.activities?.map((activity: any, idx: number) => (
+                <CustomListItem
+                  key={idx}
+                  title={activity.location}
+                  description={activity.time}
+                  icon="map-marker-outline"
+                  onPress={() => {
+                    setSelectedActivity(activity);
+                    setVisibleDetail(true);
+                  }}
+                />
+              ))}
+            </View>
+          </List.Accordion>
+        </View>
+      ))}
+      
+      {selectedActivity && (
+        <DetailScheduleModal
+          visible={visibleDetail}
+          onDismiss={() => setVisibleDetail(false)}
+          data={selectedActivity}
+          // Pass selectedActivity to the modal if needed
         />
       )}
-    >
-      <View style={styles.line}>
-        <CustomListItem
-          title="Hotel Rest"
-          description="Palm Springs Hotel"
-          time="11:00 am"
-          icon="map-marker-outline"
-          onPress={onPress}
-        />
-      </View>
-    </List.Accordion>
+    </>
   );
 };
 

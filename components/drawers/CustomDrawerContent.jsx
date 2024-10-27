@@ -1,31 +1,52 @@
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import React from "react";
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
+import React, { useContext, useEffect, useId, useState } from "react";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
-import { useRouter } from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Icon } from "react-native-paper";
 import ButtonComponent from "../button/ButtonComponent";
 import UserAvatar from "../avatar/UserAvatar";
 import FormNewSchedule from "../modal/FormNewSchedule";
 import { useAuth } from "@/configs/authConfig";
+import { CreateTripContext } from "@/configs/tripConfig";
+import { auth, db } from "@/configs/FirebaseConfig";
+import { collection, getDocs } from "firebase/firestore";
 
-export default function CustomDrawerContent(props: any) {
+export default function CustomDrawerContent(props) {
+  const [userTrips, setUserTrips] = useState([]);
   const route = useRouter();
   const {user, logout} = useAuth()
+  const userId = auth.currentUser;
   const { top, bottom } = useSafeAreaInsets();
   const [visible, setVisible] = React.useState(false);
   const hideModal = () => setVisible(false);
+  const {tripDataContext, setTripDataContext} = useContext(CreateTripContext) || {}
   
   const handleSignOut = async () => {
     await logout()
   };
+  
+  useEffect(() => {
+    const fetchUserTrips = async () => {
+      if (userId?.uid) {
+        const userTripsRef = collection(db, "users", userId?.uid, "userTrip");
+        const querySnapshot = await getDocs(userTripsRef);
+        const trips = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        })) 
+        setUserTrips(trips);
+      }
+    };
 
-  const hiddenRoutes = ["account/profile", "settings/config"];
+    fetchUserTrips();
+  }, [userId]);
+
+  const hiddenRoutes = ["account/profile", "settings/config", "planner/[id]"];
 
   return (
     <View style={{ flex: 1, backgroundColor: "#fff" }}>
-      <DrawerContentScrollView {...props} scrollEnabled={false}>
-        <View style={{ padding: 10, paddingTop: 20 }}>
+      <View style={{ padding: 10, paddingTop: 40 }}>
           <View>
             <UserAvatar size={100} uri={user?.avatar}/>
             <Text
@@ -52,7 +73,20 @@ export default function CustomDrawerContent(props: any) {
             />
           </View>
         </View>
-        {props.state.routes.map((drawerRoute: any, index: number) => {
+      <DrawerContentScrollView {...props} scrollEnabled={true} showsVerticalScrollIndicator={false}>
+        <View style={{marginTop:-25, marginBottom: 20, flexDirection:'column-reverse'}}>
+          {userTrips.map((trip) => {
+            return (
+              <DrawerItem
+                key={trip.id}
+                label={`Trip to ${trip?.tripPlan?.trip?.destination || "Unknown"}`}
+                labelStyle={styles.textDrawer}
+                onPress={() => route.navigate(`planner/${trip.id}`)}
+              />
+            );
+          })}
+        </View>
+        {props.state.routes.map((drawerRoute) => {
           if (!hiddenRoutes.includes(drawerRoute.name)) {
             return (
               <DrawerItem
@@ -72,7 +106,7 @@ export default function CustomDrawerContent(props: any) {
 
       <View
         style={{
-          gap: 30,
+          gap: 20,
           borderTopColor: "#dde3fe",
           borderTopWidth: 1,
           padding: 20,
@@ -101,9 +135,16 @@ export default function CustomDrawerContent(props: any) {
       <FormNewSchedule
         visible={visible}
         onDismiss={hideModal}
-        handleSubmit={(values: any) => {
-          console.log(values);
+        handleSubmit={(title, traveler, price, startDate, endDate) => {
+          setTripDataContext({
+            location: title, 
+            traveller: traveler, 
+            budget: price, 
+            startDate: startDate, 
+            endDate: endDate
+          })
           hideModal();
+          route.replace('/generate-loading')
         }}
       />
     </View>
@@ -114,10 +155,10 @@ const styles = StyleSheet.create({
   textDrawer: {
     fontSize: 16,
     color: "#454551",
-    fontFamily: "RC_Medium",
+    fontFamily: "RC_Medium"
   },
   row: {
     flexDirection: "row",
-    gap: 40,
+    gap: 25,
   },
 });

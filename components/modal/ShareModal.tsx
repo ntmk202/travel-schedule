@@ -5,13 +5,15 @@ import { Icon, RadioButton, Snackbar, Surface } from "react-native-paper";
 import TextInputComponent from "../input/TextInputComponent";
 import * as Clipboard from 'expo-clipboard';
 import AutocompleteComponent from "../input/AutoComplete";
+import { auth } from "@/configs/FirebaseConfig";
 
 const accessData = [
-  { id:'1', title: 'Everyone can have this link', desc: 'Anyone with this link can access', icon: 'access-point-check' },
-  { id:'2', title: 'Members of Travel Planner only', desc: 'Only members can access', icon: 'access-point-off' }
+  { id:'erne1chtsl', title: 'Everyone can have this link', desc: 'Anyone with this link can access', icon: 'access-point-check' },
+  { id:'mbs2otvpnol', title: 'Members of Travel Planner only', desc: 'Only members can access', icon: 'access-point-off' }
 ];
 
 const ShareModal = ({ visible, onDismiss, onSubmit }: any) => {
+  const userRef = auth.currentUser
   const [people, setPeople] = useState<any[]>([]); 
   const [personName, setPersonName] = useState('');
   const [access, setAccess] = useState('');
@@ -19,22 +21,18 @@ const ShareModal = ({ visible, onDismiss, onSubmit }: any) => {
   const [role, setRole] = useState('read');
   const [snackbarVisible, setSnackbarVisible] = useState(false);
   const baseUrl = "http://localhost:8081/planner/schedule";
-  const id = 1;  
-
+  const idSchedule = 1;  
+  
   useEffect(() => {
-    const newUrl = `${baseUrl}/${access}/${role}&&id?=${id}`;
+    const accessId = accessData.find(a => a.title === access)?.id
+    const newUrl = `${baseUrl}/${accessId}/${role}/${userRef?.uid}?id=${idSchedule}`
     setUrl(newUrl);
-  }, [role]);  
+  }, [access, role]);  
 
   const invitePerson = () => {
     if (people.length === 0) {
       alert("Please invite at least one person!");
       return;
-    }
-    if (personName) {
-      const newPerson = { id: people.length + 1, name: personName };
-      setPeople([...people, newPerson]); 
-      setPersonName('');
     }
   };
 
