@@ -49,6 +49,7 @@ export const EditPasswordSchema = Yup.object().shape({
 
 export const newScheduleSchema = Yup.object().shape({
   title: Yup.string().required('Destination is required'),
+  location: Yup.string().required('Location is required'),
   traveler: Yup.string().required('Traveler type is required'),
   price: Yup.string().required('Budget is required'),
   startDate: Yup.date().required('Start date is required'),

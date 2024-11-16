@@ -26,7 +26,7 @@ const MainLayout = () => {
     if (isAuthenticated && !inApp) {
       fetchLatestTrip();
     } else if (isAuthenticated === false) {
-      route.replace('/');
+      route.replace('/signin');
     }
   }, [isAuthenticated]);
 
@@ -48,7 +48,7 @@ const MainLayout = () => {
           setLatestTripId(latestTrip.tripId);
           route.replace(`/planner/${latestTrip.tripId}`);
         } else {
-          route.replace('/planner/[id]'); // Default or fallback route
+          route.replace('/planner/[id]'); 
         }
       }
     } catch (error) {

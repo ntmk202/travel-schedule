@@ -31,6 +31,7 @@ const ScheduleScreen = () => {
   const [tripNote, setTripNote] = useState([]);
   const user = auth.currentUser;
   const route = useRouter()
+  route.canGoBack(false)
 
   useEffect(() => {
     if (user && id) {
@@ -58,7 +59,7 @@ const ScheduleScreen = () => {
     setLoading(false);
   };
 
-  const tripPlan = tripNote[0]?.tripPlan?.trip;
+  const tripPlan = tripNote.find(trip => trip.tripId === id)?.tripPlan?.trip;
 
   return (
     <SafeAreaView style={styles.container}>
@@ -161,7 +162,7 @@ const ScheduleScreen = () => {
       ) : (
       <View style={styles.wrapper}>
         <View style={{ alignItems: "center", gap: 10, marginTop: 30 }}>
-          <Icon source="close-octagon" size={50} color="#6750a4" />
+          <Icon source="alert-decagram" size={50} color="#6750a4" />
           <Text style={styles.headerText}>No trips schedules yet</Text>
           <Text
             style={[styles.headerTitle, { maxWidth: 280, textAlign: "center" }]}
@@ -180,9 +181,10 @@ const ScheduleScreen = () => {
         <FormNewSchedule
           visible={visibleSchedule}
           onDismiss={() => setVisibleSchedule(false)}
-          handleSubmit={(title, traveler, price, startDate, endDate) => {
+          handleSubmit={(title, location, traveler, price, startDate, endDate) => {
             setTripDataContext({
-              location: title,
+              destination: title,
+              location: location,
               traveller: traveler,
               budget: price,
               startDate: startDate,

@@ -1,10 +1,8 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Image, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
 
-export default function Index() {
-  const route = useRouter()
-  
+export default function Index() {  
   return (
     <View
       style={{
@@ -13,7 +11,8 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text onPress={() => route.navigate('/(registrations)/signin')} >Sign in to page</Text>
+      <Image source={require('@/assets/images/world-discovery.gif')} style={{height: 150, resizeMode:'contain'}}/>
+      <Text style={{fontFamily: 'RC_Medium', fontSize: 16, marginTop: 10, color:'#6750a4'}}>Have a perfect plan for an unforgettable trip!</Text>
     </View>
   );
 }

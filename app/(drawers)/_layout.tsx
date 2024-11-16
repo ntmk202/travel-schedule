@@ -9,11 +9,35 @@ import {
   ShareModal,
 } from "@/components";
 import { TouchableOpacity, View } from "react-native";
+import { auth, db } from "@/configs/FirebaseConfig";
+import { collection, getDocs } from "firebase/firestore";
+import { useLocalSearchParams } from "expo-router";
+import * as Linking from 'expo-linking'
 
 const _layout: React.FC = () => {
+  const { id } = useLocalSearchParams();
   const [visibleShare, setVisibleShare] = useState(false);
   const [visibleChat, setVisibleChat] = useState(false);
   const [visibleInfo, setVisibleInfo] = useState(false);
+  const [selectedTripId, setSelectedTripId] = useState<string | null>(null);
+  const [userTrips, setUserTrips] = useState<any>([]);
+
+  React.useEffect(() => {
+    const fetchUserTrips = async () => {
+      const userId = auth.currentUser?.uid;
+      if (userId) {
+        const userTripsRef = collection(db, "users", userId, "userTrip");
+        const querySnapshot = await getDocs(userTripsRef);
+        const trips:any = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setUserTrips(trips);
+      }
+    };
+
+    fetchUserTrips();
+  }, []);
   
 
   const headerTitleStyle = {
@@ -23,14 +47,20 @@ const _layout: React.FC = () => {
     maxWidth: 180,
   };
 
-  const handleShareSubmit = (data: any) => {
-    console.log("Shared URL:", data.url);
-  };
+  const currentTrip = userTrips.find((trip: any) => trip.id === (selectedTripId || id));
+
+  const url = Linking.useURL();
+  React.useEffect(() => {
+    if (url) {
+      const { hostname, path, queryParams } = Linking.parse(url);
+      console.log(`Linked with hostname: ${hostname}, path: ${path}, data: ${JSON.stringify(queryParams)}`);
+    }
+  }, [url]);
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Drawer
-        drawerContent={(props) => <CustomDrawerContent {...props} />}
+        drawerContent={(props) => <CustomDrawerContent {...props} userTrips={userTrips} setUserTrips={setUserTrips} setSelectedTripId={setSelectedTripId}/>}
         screenOptions={{
           drawerType: "slide",
           drawerLabelStyle: { fontFamily: "RC_Medium" }
@@ -39,9 +69,13 @@ const _layout: React.FC = () => {
           <Drawer.Screen 
             name="planner/[id]" 
             options={{
-            headerTitle: "Schedule",
+            headerTitle: currentTrip
+            ? `Trip to ${currentTrip?.tripPlan?.trip?.destination || "..."}`
+            : "",
             headerTitleStyle: headerTitleStyle,
               headerRight: () => (
+                <>
+                {currentTrip? (
                 <View style={{ flexDirection: "row", gap: 15, marginEnd: 20 }}>
                   <TouchableOpacity onPress={() => setVisibleShare(true)}>
                     <Icon source="share-variant-outline" size={20} />
@@ -49,7 +83,8 @@ const _layout: React.FC = () => {
                   <ShareModal
                     visible={visibleShare}
                     onDismiss={() => setVisibleShare(false)}
-                    onSubmit={handleShareSubmit}
+                    // onSubmit={handleShareSubmit}
+                    tripData={selectedTripId}
                   />
                   <TouchableOpacity onPress={() => setVisibleChat(true)}>
                     <Icon source="chat-processing-outline" size={20} />
@@ -57,6 +92,7 @@ const _layout: React.FC = () => {
                   <ChatModal
                     visible={visibleChat}
                     onDismiss={() => setVisibleChat(false)}
+                    tripData={selectedTripId}
                   />
                   <TouchableOpacity onPress={() => setVisibleInfo(true)}>
                     <Icon source="information-outline" size={20} />
@@ -64,8 +100,13 @@ const _layout: React.FC = () => {
                   <InformationModal 
                     visible={visibleInfo}
                     onDismiss={() => setVisibleInfo(false)}
+                    tripData={selectedTripId}
+                    userTrips={userTrips} 
+                    setUserTrips={setUserTrips}
                   />
                 </View>
+                ): null}
+                </>
               ),
               drawerIcon: ({ size, color }) => (
                 <Icon source="notebook" size={size} color={color} />

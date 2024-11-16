@@ -13,10 +13,11 @@ import { auth, db } from "@/configs/FirebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 
 export default function CustomDrawerContent(props) {
-  const [userTrips, setUserTrips] = useState([]);
+  const {userTrips, setUserTrips, setSelectedTripId } = props;
+  // const [userTrips, setUserTrips] = useState([]);
   const route = useRouter();
   const {user, logout} = useAuth()
-  const userId = auth.currentUser;
+  // const userId = auth.currentUser;
   const { top, bottom } = useSafeAreaInsets();
   const [visible, setVisible] = React.useState(false);
   const hideModal = () => setVisible(false);
@@ -26,21 +27,21 @@ export default function CustomDrawerContent(props) {
     await logout()
   };
   
-  useEffect(() => {
-    const fetchUserTrips = async () => {
-      if (userId?.uid) {
-        const userTripsRef = collection(db, "users", userId?.uid, "userTrip");
-        const querySnapshot = await getDocs(userTripsRef);
-        const trips = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        })) 
-        setUserTrips(trips);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchUserTrips = async () => {
+  //     if (userId?.uid) {
+  //       const userTripsRef = collection(db, "users", userId?.uid, "userTrip");
+  //       const querySnapshot = await getDocs(userTripsRef);
+  //       const trips = querySnapshot.docs.map((doc) => ({
+  //         id: doc.id,
+  //         ...doc.data(),
+  //       })) 
+  //       setUserTrips(trips);
+  //     }
+  //   };
 
-    fetchUserTrips();
-  }, [userId]);
+  //   fetchUserTrips();
+  // }, [userId]);
 
   const hiddenRoutes = ["account/profile", "settings/config", "planner/[id]"];
 
@@ -75,16 +76,23 @@ export default function CustomDrawerContent(props) {
         </View>
       <DrawerContentScrollView {...props} scrollEnabled={true} showsVerticalScrollIndicator={false}>
         <View style={{marginTop:-25, marginBottom: 20, flexDirection:'column-reverse'}}>
-          {userTrips.map((trip) => {
+        {Array.isArray(userTrips) && userTrips.length > 0 ? (
+          userTrips.map((trip) => {
             return (
               <DrawerItem
                 key={trip.id}
                 label={`Trip to ${trip?.tripPlan?.trip?.destination || "Unknown"}`}
                 labelStyle={styles.textDrawer}
-                onPress={() => route.navigate(`planner/${trip.id}`)}
+                onPress={() => {
+                  setSelectedTripId(trip.id); 
+                  route.navigate(`planner/${trip.id}`);
+                }}
               />
             );
-          })}
+          })
+        ) : (
+          <Text style={[styles.textDrawer,{marginStart: 20}]}>No trips available</Text> 
+        )}
         </View>
         {props.state.routes.map((drawerRoute) => {
           if (!hiddenRoutes.includes(drawerRoute.name)) {
@@ -135,9 +143,10 @@ export default function CustomDrawerContent(props) {
       <FormNewSchedule
         visible={visible}
         onDismiss={hideModal}
-        handleSubmit={(title, traveler, price, startDate, endDate) => {
+        handleSubmit={(title, location, traveler, price, startDate, endDate) => {
           setTripDataContext({
-            location: title, 
+            destination: title,
+            location: location, 
             traveller: traveler, 
             budget: price, 
             startDate: startDate, 

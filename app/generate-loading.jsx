@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { CreateTripContext } from "@/configs/tripConfig";
 import { AI_PROMPT } from '@/constants/options/Options';
 import { chatSession } from '@/configs/GeminiConfig';
-import { useRouter } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import { doc, setDoc } from 'firebase/firestore';
 import { auth, db } from '@/configs/FirebaseConfig';
 import { ActivityIndicator, Icon } from 'react-native-paper';
@@ -13,12 +13,13 @@ const GenerateLoading = () => {
   const [loading, setLoading] = useState(false);
   const user = auth.currentUser
   const route = useRouter();
+  const {id} = useLocalSearchParams()
 
   useEffect(() => {
-    if (tripDataContext) {
+    if (tripDataContext && !loading) {
       GenerateAiTrip();
     }
-  }, [tripDataContext]);
+  }, [tripDataContext, user]);
 
   const GenerateAiTrip = async () => {
     try {
@@ -37,12 +38,28 @@ const GenerateLoading = () => {
       const tripRCMId = `${Date.now()}_${user?.uid}`;
       const tripRCMData = {
         tripId: tripRCMId,
-        tripPlan: tripPlanRCM,
+        tripPlan: tripPlanRCM
+      };
+      const chatData = {
+        chatId: `group_${tripRCMId}`,
+        tripId: tripRCMId,
+        owner: user.uid,
+        tripRole: 'edit',
+        members: [
+          {
+            userId: user.uid,
+            email: user.email,
+            username: user.displayName || 'Owner',
+            joinAt: new Date().toISOString(),
+          },
+        ],
       };
 
       if (user?.uid) {
         const tripRef = doc(db, 'users', user.uid, 'userTrip', tripRCMId);
         await setDoc(tripRef, tripRCMData);
+        const chatRef = doc(db, 'groups', `group_${tripRCMId}`);
+        await setDoc(chatRef, chatData);
       } else {
         console.warn("User ID not found; cannot store trip data under a user.");
       }
@@ -63,7 +80,11 @@ const GenerateLoading = () => {
         <Text style={styles.text}>Please dont go back or leave</Text>
       </>
       :
-      <Icon source='check-circle-outline' color='#6750a4' size={50} />
+      <>
+        <Icon source='restore-alert' color='#6750a4' size={50} />
+        <Text style={styles.title}> Something wrong !!! </Text>
+        <Text onPress={() => route.replace(`/planner/${id}`)} style={[styles.text, {color:'blue'}]}>Go back</Text>
+      </>
       }
     </SafeAreaView>
   );

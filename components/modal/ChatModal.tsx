@@ -3,7 +3,7 @@ import React from 'react'
 import { Icon, Surface, TextInput } from 'react-native-paper'
 import GroupAvatar from '../avatar/GroupAvatar'
 
-const ChatModal = ({ visible, onDismiss }: any) => {
+const ChatModal = ({ visible, onDismiss, tripData }: any) => {
   return (
     <Modal visible={visible} animationType="slide" transparent={true}>
       <KeyboardAvoidingView

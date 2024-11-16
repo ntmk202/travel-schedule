@@ -1,6 +1,7 @@
-import React from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
-import CalendarPicker from 'react-native-calendar-picker';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import { Icon } from 'react-native-paper';
 
 interface DateRangePickerProps {
   startDate: Date | undefined;
@@ -13,22 +14,64 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
   endDate,
   onDateChange,
 }) => {
-  const minDate = new Date(); // Today
+  const [showStartPicker, setShowStartPicker] = useState(false);
+  const [showEndPicker, setShowEndPicker] = useState(false);
+  const minDate = new Date();
+
+  const handleStartDateConfirm = (selectedDate: Date) => {
+    onDateChange(selectedDate, 'START_DATE');
+    setShowStartPicker(false);
+  };
+
+  const handleEndDateConfirm = (selectedDate: Date) => {
+    onDateChange(selectedDate, 'END_DATE');
+    setShowEndPicker(false);
+  };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>How many days for your trip?</Text>
-      <CalendarPicker
-        width={300} 
-        allowRangeSelection
-        minDate={minDate}
-        maxRangeDuration={10}
-        todayBackgroundColor="#f2e6ff"
-        selectedDayColor="#7300e6"
-        selectedDayTextColor="#FFFFFF"
-        onDateChange={onDateChange}
-        selectedStartDate={startDate}
-        selectedEndDate={endDate}
+
+      <View style={styles.dateTimeContainer}>
+        <Text style={styles.label}>Start Date & Time:</Text>
+        <TouchableOpacity style={styles.row} onPress={() => setShowStartPicker(true)}>
+          <Text style={[styles.label, { color: '#6750a4' }]}>
+            {startDate ? startDate.toLocaleString() : 'Select Start Date & Time'}
+          </Text>
+          <Icon source="calendar" size={24} />
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.dateTimeContainer}>
+        <Text style={styles.label}>End Date & Time:</Text>
+        <TouchableOpacity style={styles.row} onPress={() => setShowEndPicker(true)}>
+          <Text style={[styles.label, { color: '#6750a4' }]}>
+            {endDate ? endDate.toLocaleString() : 'Select End Date & Time'}
+          </Text>
+          <Icon source="calendar" size={24} />
+        </TouchableOpacity>
+      </View>
+
+      {/* Start Date Time Picker Modal */}
+      <DateTimePickerModal
+        isVisible={showStartPicker}
+        mode="datetime"
+        date={startDate ? new Date(startDate) : undefined}
+        is24Hour
+        minimumDate={minDate}
+        onConfirm={handleStartDateConfirm}
+        onCancel={() => setShowStartPicker(false)}
+      />
+
+      {/* End Date Time Picker Modal */}
+      <DateTimePickerModal
+        isVisible={showEndPicker}
+        mode="datetime"
+        date={endDate ? new Date(endDate) : undefined}
+        is24Hour
+        minimumDate={startDate}
+        onConfirm={handleEndDateConfirm}
+        onCancel={() => setShowEndPicker(false)}
       />
     </View>
   );
@@ -45,7 +88,19 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: 'RC_Regular',
     fontSize: 20,
-    // marginStart: -10,
     marginBottom: 10,
+  },
+  dateTimeContainer: {
+    marginVertical: 10,
+  },
+  label: {
+    fontFamily: 'RC_Regular',
+    fontSize: 16,
+    marginBottom: 5,
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 });

@@ -1,45 +1,93 @@
-import { View, Text, Modal, StyleSheet, TouchableOpacity, TextInput, ScrollView } from "react-native";
+import { View, Text, Modal, StyleSheet, TouchableOpacity} from "react-native";
 import React, { useEffect, useState } from "react";
 import ButtonComponent from "../button/ButtonComponent";
 import { Icon, RadioButton, Snackbar, Surface } from "react-native-paper";
 import TextInputComponent from "../input/TextInputComponent";
 import * as Clipboard from 'expo-clipboard';
+import { auth, db } from "@/configs/FirebaseConfig";
+import { arrayUnion, doc, getDoc, updateDoc } from "firebase/firestore";
 import AutocompleteComponent from "../input/AutoComplete";
-import { auth } from "@/configs/FirebaseConfig";
+import { useLocalSearchParams } from "expo-router";
 
 const accessData = [
   { id:'erne1chtsl', title: 'Everyone can have this link', desc: 'Anyone with this link can access', icon: 'access-point-check' },
-  { id:'mbs2otvpnol', title: 'Members of Travel Planner only', desc: 'Only members can access', icon: 'access-point-off' }
+  { id:'mbs2otvpnol', title: 'Just who have this link', desc: 'Only members can access', icon: 'access-point-off' }
 ];
 
-const ShareModal = ({ visible, onDismiss, onSubmit }: any) => {
+
+const ShareModal = ({ visible, onDismiss, onSubmit, tripData }: any) => {
   const userRef = auth.currentUser
-  const [people, setPeople] = useState<any[]>([]); 
-  const [personName, setPersonName] = useState('');
+  
+  // const [people, setPeople] = useState<any[]>([]); 
+  // const [personName, setPersonName] = useState('');
+  const { id } = useLocalSearchParams();
   const [access, setAccess] = useState('');
   const [url, setUrl] = useState('');
+  const [isOwner, setIsOwner] = useState(false);
   const [role, setRole] = useState('read');
   const [snackbarVisible, setSnackbarVisible] = useState(false);
-  const baseUrl = "http://localhost:8081/planner/schedule";
-  const idSchedule = 1;  
+  const currentId = (tripData || id)
+  const baseUrl = "http://localhost:8081/planner";
   
-  useEffect(() => {
-    const accessId = accessData.find(a => a.title === access)?.id
-    const newUrl = `${baseUrl}/${accessId}/${role}/${userRef?.uid}?id=${idSchedule}`
-    setUrl(newUrl);
-  }, [access, role]);  
+  // const updateUrlAndRole = async (newRole:any) => {
+  //   const accessId = `${Date.now()}_${currentId || ''}`
+  //   const tripRole = newRole === "edit"; // true for edit, false for read-only
+  //   const newUrl = `${baseUrl}/${accessId}/${newRole}/${userRef?.uid}?id=${currentId}`;
+    
+  //   setUrl(newUrl);
+  //   setRole(newRole);
+    
+  //   // Update tripRole in Firestore
+  //   if (userRef?.uid&&currentId) {
+  //     const tripDocRef = doc(db, "users", userRef?.uid, "userTrip", currentId);
+  //     await updateDoc(tripDocRef, { tripRole }); // tripRole: true/false based on role
+  //   }
+  // };
 
-  const invitePerson = () => {
-    if (people.length === 0) {
-      alert("Please invite at least one person!");
-      return;
+  const checkOwnership = async () => {
+    const tripAccessRef = doc(db, 'groups', tripData);
+
+    // Fetch the trip data to check owner
+    const tripSnapshot = await getDoc(tripAccessRef);
+    if (tripSnapshot.exists()) {
+      const tripInfo = tripSnapshot.data();
+      setIsOwner(tripInfo.owner === userRef?.uid); 
     }
   };
 
-  const handleSubmit = () => {  
-    Clipboard.setString(url);
-    onSubmit({ people, url, access, role });
-    setSnackbarVisible(true);
+  useEffect(() => {
+    if (visible) {
+      checkOwnership();
+    }
+  }, [role, tripData, visible, userRef]);
+
+  const handleSubmit = async () => {
+    const tripAccessRef = doc(db, 'groups', currentId);
+
+    try {
+      if(tripAccessRef){
+        await updateDoc(tripAccessRef, {
+          tripRole: role,
+          members: arrayUnion({
+            userId: userRef?.uid,
+            email: userRef?.email,
+            username: userRef?.displayName || 'Guest',
+            role: 'guest',
+            joinAt: new Date().toISOString(),
+          }),
+        });
+        console.log('update success')
+      } else{ 
+        console.log('update failed')
+      }
+
+      const shareLink = `${baseUrl}/trip/${currentId}?role=${role}`;
+      await Clipboard.setStringAsync(shareLink);
+
+      setSnackbarVisible(true);
+    } catch (error) {
+      console.error("Error sharing trip:", error);
+    }
   };
 
   return (
@@ -58,7 +106,7 @@ const ShareModal = ({ visible, onDismiss, onSubmit }: any) => {
             </View>
           </View>
           <View style={{padding: 20}}>
-            <View style={[styles.row, {alignItems: 'flex-end', justifyContent:'space-between', gap: 5}]}>
+            {/* <View style={[styles.row, {alignItems: 'flex-end', justifyContent:'space-between', gap: 5}]}>
               <View style={{width: '65%'}}>
                 <TextInputComponent 
                   label="Invite people" 
@@ -76,7 +124,7 @@ const ShareModal = ({ visible, onDismiss, onSubmit }: any) => {
                 marginTop={20}
               />
             </View>
-            <AutocompleteComponent query={access} onQueryChange={a => setAccess(a)} data={accessData} label="Everyone can have access for this url"/>
+            <AutocompleteComponent query={access} onQueryChange={a => setAccess(a)} data={accessData} label="Everyone can have access for this url"/> */}
             <RadioButton.Group onValueChange={value => setRole(value)} value={role}>
               <View style={styles.row}>
                 <RadioButton.Item label="Read only" value="read" />
@@ -109,6 +157,7 @@ const styles = StyleSheet.create({
   surface: { 
     backgroundColor: '#fff', 
     borderRadius: 10,
+    paddingBottom: 20
   },
   row: {
     flexDirection: "row",
@@ -133,5 +182,10 @@ const styles = StyleSheet.create({
   snackbar: {
     width: 90,
     alignSelf: 'center'
+  },
+  label: {
+    fontFamily: 'RC_Regular',
+    fontSize: 20,
+    marginVertical: 10
   }
 });
