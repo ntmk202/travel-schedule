@@ -11,7 +11,8 @@ const InformationModal = ({ visible, onDismiss, tripData, userTrips, setUserTrip
   const { id } = useLocalSearchParams();
   const user = auth.currentUser
   const route = useRouter()
-  const currentTrip = userTrips.find((trip:any) => trip.tripId === (tripData || id))
+  
+  const currentTrip = userTrips && userTrips.find((trip:any) => trip.tripId === (tripData || id))
   const handleDeletion = async () => {
     try {
       if (user?.uid && currentTrip?.id) {
