@@ -1,22 +1,23 @@
 import { Dimensions, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import { Icon, Surface } from 'react-native-paper'
 import UserAvatar from '../avatar/UserAvatar'
 import ButtonComponent from '../button/ButtonComponent'
 import { deleteDoc, doc } from 'firebase/firestore'
 import { auth, db } from '@/configs/FirebaseConfig'
 import { useLocalSearchParams, useRouter } from 'expo-router'
+import { useAuth } from '@/configs/authConfig'
 
 const InformationModal = ({ visible, onDismiss, tripData, userTrips, setUserTrips }: any) => {
-  const { id } = useLocalSearchParams();
-  const user = auth.currentUser
+  const userRef = auth.currentUser
+  const {user} = useAuth()
   const route = useRouter()
   
-  const currentTrip = userTrips && userTrips.find((trip:any) => trip.tripId === (tripData || id))
+  const currentTrip = userTrips && userTrips.find((trip:any) => trip.tripId === tripData)
   const handleDeletion = async () => {
     try {
-      if (user?.uid && currentTrip?.id) {
-        const tripRef = doc(db, 'users', user.uid, 'userTrip', currentTrip?.id);
+      if (userRef?.uid && currentTrip?.id) {
+        const tripRef = doc(db, 'users', userRef.uid, 'userTrip', currentTrip?.id);
         await deleteDoc(tripRef);
 
         const updatedTrips = userTrips.filter((trip: any) => trip.tripId !== currentTrip?.id);
@@ -52,9 +53,9 @@ const InformationModal = ({ visible, onDismiss, tripData, userTrips, setUserTrip
               <Text style={styles.title}>Owner schedule</Text>
               <Text style={styles.subTitle}>Details about the person who created this schedule</Text>
               <View style={styles.row}>
-                <UserAvatar size={40} uri={user?.photoURL}/>
+                <UserAvatar size={40} uri={user?.avatar}/>
                 <View >
-                  <Text style={styles.text}>{user?.displayName}</Text>
+                  <Text style={styles.text}>{user?.username}</Text>
                   <Text style={styles.subText}>{user?.email}</Text>
                 </View>
               </View>

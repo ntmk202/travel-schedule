@@ -14,34 +14,16 @@ import { collection, getDocs } from "firebase/firestore";
 
 export default function CustomDrawerContent(props) {
   const {userTrips, setUserTrips, setSelectedTripId } = props;
-  // const [userTrips, setUserTrips] = useState([]);
+  const { id } = useLocalSearchParams();
   const route = useRouter();
   const {user, logout} = useAuth()
-  // const userId = auth.currentUser;
   const { top, bottom } = useSafeAreaInsets();
   const [visible, setVisible] = React.useState(false);
   const hideModal = () => setVisible(false);
   const {tripDataContext, setTripDataContext} = useContext(CreateTripContext) || {}
-  
   const handleSignOut = async () => {
     await logout()
   };
-  
-  // useEffect(() => {
-  //   const fetchUserTrips = async () => {
-  //     if (userId?.uid) {
-  //       const userTripsRef = collection(db, "users", userId?.uid, "userTrip");
-  //       const querySnapshot = await getDocs(userTripsRef);
-  //       const trips = querySnapshot.docs.map((doc) => ({
-  //         id: doc.id,
-  //         ...doc.data(),
-  //       })) 
-  //       setUserTrips(trips);
-  //     }
-  //   };
-
-  //   fetchUserTrips();
-  // }, [userId]);
 
   const hiddenRoutes = ["account/profile", "settings/config", "planner/[id]"];
 
@@ -84,8 +66,9 @@ export default function CustomDrawerContent(props) {
                 label={`Trip to ${trip?.tripPlan?.trip?.destination || "Unknown"}`}
                 labelStyle={styles.textDrawer}
                 onPress={() => {
-                  setSelectedTripId(trip.id); 
-                  route.navigate(`planner/${trip.id}`);
+                  const curentId = trip.id || id
+                  setSelectedTripId(curentId); 
+                  route.navigate(`planner/${curentId}`);
                 }}
               />
             );
@@ -143,14 +126,15 @@ export default function CustomDrawerContent(props) {
       <FormNewSchedule
         visible={visible}
         onDismiss={hideModal}
-        handleSubmit={(title, location, traveler, price, startDate, endDate) => {
+        handleSubmit={(location, traveler, transport, price, startDate, endDate) => {
           setTripDataContext({
-            destination: title,
+            myAddress: user.address,
             location: location, 
             traveller: traveler, 
+            transport: transport,
             budget: price, 
             startDate: startDate, 
-            endDate: endDate
+            endDate: endDate,
           })
           hideModal();
           route.replace('/generate-loading')

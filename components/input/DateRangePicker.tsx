@@ -17,6 +17,8 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
   const [showStartPicker, setShowStartPicker] = useState(false);
   const [showEndPicker, setShowEndPicker] = useState(false);
   const minDate = new Date();
+  const maxDate = new Date(); 
+  maxDate.setDate(minDate.getDate() + 10);
 
   const handleStartDateConfirm = (selectedDate: Date) => {
     onDateChange(selectedDate, 'START_DATE');
@@ -59,6 +61,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
         date={startDate ? new Date(startDate) : undefined}
         is24Hour
         minimumDate={minDate}
+        maximumDate={maxDate}
         onConfirm={handleStartDateConfirm}
         onCancel={() => setShowStartPicker(false)}
       />
@@ -69,7 +72,8 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
         mode="datetime"
         date={endDate ? new Date(endDate) : undefined}
         is24Hour
-        minimumDate={startDate}
+        minimumDate={startDate ? new Date(startDate.getTime() + 86400000) : startDate}
+        maximumDate={maxDate}
         onConfirm={handleEndDateConfirm}
         onCancel={() => setShowEndPicker(false)}
       />

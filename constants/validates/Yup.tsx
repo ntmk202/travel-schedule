@@ -48,10 +48,13 @@ export const EditPasswordSchema = Yup.object().shape({
 });
 
 export const newScheduleSchema = Yup.object().shape({
-  title: Yup.string().required('Destination is required'),
   location: Yup.string().required('Location is required'),
   traveler: Yup.string().required('Traveler type is required'),
-  price: Yup.string().required('Budget is required'),
+  transport: Yup.string().required('Transport date is required'),
+  price: Yup.array()
+            .of(Yup.number().min(1000000).max(100000000))
+            .length(2, "Price must be a range of two values")
+            .required("Budget range is required"),
   startDate: Yup.date().required('Start date is required'),
-  endDate: Yup.date().required('End date is required')
+  endDate: Yup.date().required('End date is required'),
 });

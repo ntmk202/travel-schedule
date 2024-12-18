@@ -5,8 +5,10 @@ import {
   Dimensions,
   ScrollView,
   TouchableOpacity,
+  TextInput,
+  FlatList,
 } from "react-native";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useLayoutEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ActivityIndicator, Icon, SegmentedButtons } from "react-native-paper";
 import {
@@ -14,53 +16,81 @@ import {
   ChatbotModal,
   DetailList,
   FormNewSchedule,
-  MapList,
+  MapList
 } from "@/components";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDoc, getDocs, query, where, doc } from "firebase/firestore";
 import { auth, db } from "@/configs/FirebaseConfig";
 import { CreateTripContext } from "@/configs/tripConfig";
+import { useAuth } from "@/configs/authConfig";
 
 const ScheduleScreen = () => {
-  const { id } = useLocalSearchParams();
+  const { id } = useLocalSearchParams(); 
   const [value, setValue] = useState("list");
   const [visibleChatbot, setVisibleChatbot] = useState(false);
   const [visibleSchedule, setVisibleSchedule] = useState(false);
-  const {tripDataContext, setTripDataContext} = useContext(CreateTripContext) || {}
+  const { tripDataContext, setTripDataContext } = useContext(CreateTripContext) || {}
   const [loading, setLoading] = useState(false);
   const [tripNote, setTripNote] = useState([]);
-  const user = auth.currentUser;
+  const [isAuthorized, setIsAuthorized] = useState(false);
+  const [ownerId, setOwnerId] = useState(null); 
+  const {user} = useAuth() 
+  const userRef = auth.currentUser;
   const route = useRouter()
   route.canGoBack(false)
 
-  useEffect(() => {
-    if (user && id) {
-      getTripData();
-    }
-  }, [user, id]);
+  // Fetch user's trip data
+  React.useEffect(() => {
+    const fetchTripDetails = async () => {
+      if (!userRef?.uid) return;
 
-  const getTripData = async () => {
-    setLoading(true);
-    setTripNote([]);
-    try {
-      if (user?.uid && id) {
-        const tripRef = query(
-          collection(db, "users", user.uid, "userTrip"),
-          where("tripId", "==", id)
-        );
-        const querySnap = await getDocs(tripRef);
-        querySnap.forEach((doc) => {
-          setTripNote((prev) => [...prev, doc.data()]);
+      setLoading(true);
+
+      try {
+        // Query sharedTrips collection to check if the current user has shared trips
+        const sharedTripRef = query(collection(db, "users", userRef.uid, "sharedTrips"));
+        const sharedTripSnap = await getDocs(sharedTripRef);
+
+        let foundSharedTrip = false;
+        sharedTripSnap.forEach((doc) => {
+          const sharedTripData = doc.data();
+          if (sharedTripData.tripId === id) {
+            setIsAuthorized(true);
+            setOwnerId(sharedTripData.ownerId); // Set ownerId from the shared trip
+            foundSharedTrip = true;
+          }
         });
+
+        // If the trip is shared, fetch trip details from the owner's userTrip collection
+        if (foundSharedTrip && ownerId) {
+          const tripDocRef = doc(db, "users", ownerId, "userTrip", id);
+          const tripDocSnap = await getDoc(tripDocRef);
+          if (tripDocSnap.exists()) { 
+            setTripNote(tripDocSnap.data());
+          }
+        }
+
+        // If no shared trip found, fetch trip details from the current user's userTrip collection
+        if (!foundSharedTrip) {
+          const tripRef = query(collection(db, "users", userRef.uid, "userTrip"));
+          const querySnap = await getDocs(tripRef);
+          const notes = [];
+          querySnap.forEach((doc) => notes.push(doc.data()));
+          setTripNote(notes);
+        }
+        
+      } catch (error) {
+        console.error("Error fetching trip data:", error);
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.error("Error fetching trip data:", error);
-    }
-    setLoading(false);
-  };
+    };
 
-  const tripPlan = tripNote.find(trip => trip.tripId === id)?.tripPlan?.trip;
-
+    fetchTripDetails();
+  }, [userRef, isAuthorized, ownerId, id]);
+  
+  const tripPlan = tripNote.length > 0 ? tripNote.find(trip => trip.tripId === id)?.tripPlan?.trip : tripNote?.tripPlan?.trip;
+  
   return (
     <SafeAreaView style={styles.container}>
       {loading ? (
@@ -79,8 +109,7 @@ const ScheduleScreen = () => {
               }}
             >
               <ButtonComponent
-                label="Add place"
-                icon="plus"
+                label="Explore"
                 height={40}
                 mode="contained-tonal"
                 labelStyle={{ fontSize: 18 }}
@@ -148,53 +177,55 @@ const ScheduleScreen = () => {
               <Text style={styles.headerTitle}>{tripPlan?.duration}</Text>
             </View>
           </View>
-          <ScrollView
-            style={{ marginBottom: 20 }}
-            showsVerticalScrollIndicator={false}
-          >
-            {value === "list" ? (
+          {value === "list" ? (
+            <ScrollView
+              style={{ marginBottom: 20 }}
+              showsVerticalScrollIndicator={false}
+            >
               <DetailList data={tripPlan?.itinerary} />
-            ) : (
-              <MapList />
-            )}
-          </ScrollView>
+
+            </ScrollView>
+          ) : (
+            <MapList tripPlan={tripPlan} />
+          )}
         </View>
       ) : (
-      <View style={styles.wrapper}>
-        <View style={{ alignItems: "center", gap: 10, marginTop: 30 }}>
-          <Icon source="alert-decagram" size={50} color="#6750a4" />
-          <Text style={styles.headerText}>No trips schedules yet</Text>
-          <Text
-            style={[styles.headerTitle, { maxWidth: 280, textAlign: "center" }]}
-          >
-            Looks like its time to plan a new travel experience! Get start below
-          </Text>
-          <ButtonComponent
-            mode="contained"
-            label="Start a new Schedule"
-            height={46}
-            labelStyle={{ fontSize: 18 }}
-            customstyle={{ borderRadius: 10, width: 200 }}
-            onPress={() => setVisibleSchedule(true)}
+        <View style={styles.wrapper}>
+          <View style={{ alignItems: "center", gap: 10, marginTop: 30 }}>
+            <Icon source="alert-decagram" size={50} color="#6750a4" />
+            <Text style={styles.headerText}>No trips schedules yet</Text>
+            <Text
+              style={[styles.headerTitle, { maxWidth: 280, textAlign: "center" }]}
+            >
+              Looks like its time to plan a new travel experience! Get start below
+            </Text>
+            <ButtonComponent
+              mode="contained"
+              label="Start a new Schedule"
+              height={46}
+              labelStyle={{ fontSize: 18 }}
+              customstyle={{ borderRadius: 10, width: 200 }}
+              onPress={() => setVisibleSchedule(true)}
+            />
+          </View>
+          <FormNewSchedule
+            visible={visibleSchedule}
+            onDismiss={() => setVisibleSchedule(false)}
+            handleSubmit={(location, traveler, transport, price, startDate, endDate) => {
+              setTripDataContext({
+                myAddress: user.address,
+                location: location,
+                traveller: traveler,
+                transport: transport,
+                budget: price,
+                startDate: startDate,
+                endDate: endDate,
+              });
+              setVisibleSchedule(false)
+              route.replace("/generate-loading");
+            }}
           />
         </View>
-        <FormNewSchedule
-          visible={visibleSchedule}
-          onDismiss={() => setVisibleSchedule(false)}
-          handleSubmit={(title, location, traveler, price, startDate, endDate) => {
-            setTripDataContext({
-              destination: title,
-              location: location,
-              traveller: traveler,
-              budget: price,
-              startDate: startDate,
-              endDate: endDate,
-            });
-            setVisibleSchedule(false)
-            route.replace("/generate-loading");
-          }}
-        />
-      </View>
       )}
     </SafeAreaView>
   );

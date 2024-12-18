@@ -12,7 +12,8 @@ const initialValues: SignUpFormValues = {
   email: "",
   password: "",
   username: "",
-  avatar: null
+  avatar: null,
+  address: null
 };
 
 const SignupScreen = () => {
@@ -27,7 +28,7 @@ const SignupScreen = () => {
         validationSchema={SignUpSchema}
         onSubmit={async (values, { setErrors }) => {
           try {
-            await signup(values.email, values.password, values.username, values.avatar);
+            await signup(values.email, values.password, values.username, values.avatar, values.address);
             // route.push("/signin");
           } catch (error: any) {
             if (error.message.includes("email-already-in-use")) {

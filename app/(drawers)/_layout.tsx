@@ -10,9 +10,9 @@ import {
 } from "@/components";
 import { TouchableOpacity, View } from "react-native";
 import { auth, db } from "@/configs/FirebaseConfig";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { useLocalSearchParams } from "expo-router";
-import * as Linking from 'expo-linking'
+// import * as Linking from 'expo-linking'
 
 const _layout: React.FC = () => {
   const { id } = useLocalSearchParams();
@@ -21,41 +21,66 @@ const _layout: React.FC = () => {
   const [visibleInfo, setVisibleInfo] = useState(false);
   const [selectedTripId, setSelectedTripId] = useState<string | null>(null);
   const [userTrips, setUserTrips] = useState<any>([]);
+  
+  const fetchAllTrips = async () => {
+    const userId = auth.currentUser?.uid;
+  
+    if (!userId) return;
+  
+    try {
+      // Fetch user trips
+      const userTripsRef = collection(db, "users", userId, "userTrip");
+      const userTripsSnapshot = await getDocs(userTripsRef);
+      const userTrips = userTripsSnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+        isOwner: true, // Mark as owned trips
+      }));
+  
+      // Fetch shared trips
+      const sharedTripsRef = collection(db, "users", userId, "sharedTrips");
+      const sharedTripsSnapshot = await getDocs(sharedTripsRef);
+      const sharedTripsPromises = sharedTripsSnapshot.docs.map(async (sharedTripDoc) => {
+        const { ownerId, tripId } = sharedTripDoc.data();
+        const tripRef = doc(db, "users", ownerId, "userTrip", tripId);
+        const tripSnapshot = await getDoc(tripRef);
+  
+        return tripSnapshot.exists()
+          ? { id: tripId, ...tripSnapshot.data(), ownerId, isShared: true }
+          : null;
+      });
+  
+      const sharedTrips = (await Promise.all(sharedTripsPromises)).filter(Boolean);
+  
+      // Combine all trips
+      const allTrips = [...userTrips, ...sharedTrips];
+      console.log(allTrips);
+      return allTrips;
+    } catch (error) {
+      console.error("Error fetching trips:", error);
+      return [];
+    }
+  };
 
   React.useEffect(() => {
-    const fetchUserTrips = async () => {
-      const userId = auth.currentUser?.uid;
-      if (userId) {
-        const userTripsRef = collection(db, "users", userId, "userTrip");
-        const querySnapshot = await getDocs(userTripsRef);
-        const trips:any = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setUserTrips(trips);
-      }
-    };
+  const fetchTrips = async () => {
+    const trips = await fetchAllTrips();
+    setUserTrips(trips);
+  };
 
-    fetchUserTrips();
-  }, []);
-  
+  fetchTrips();
+}, []);
+
 
   const headerTitleStyle = {
     fontFamily: "RC_SemiBold",
     fontSize: 24,
     letterSpacing: 0.24,
-    maxWidth: 180,
+    maxWidth: 190,
   };
 
-  const currentTrip = userTrips.find((trip: any) => trip.id === (selectedTripId || id));
-
-  const url = Linking.useURL();
-  React.useEffect(() => {
-    if (url) {
-      const { hostname, path, queryParams } = Linking.parse(url);
-      console.log(`Linked with hostname: ${hostname}, path: ${path}, data: ${JSON.stringify(queryParams)}`);
-    }
-  }, [url]);
+  const curentId = selectedTripId || id
+  const currentTrip = userTrips.find((trip: any) => trip.id === curentId);
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
@@ -92,7 +117,7 @@ const _layout: React.FC = () => {
                   <ChatModal
                     visible={visibleChat}
                     onDismiss={() => setVisibleChat(false)}
-                    tripData={selectedTripId}
+                    tripData={curentId}
                   />
                   <TouchableOpacity onPress={() => setVisibleInfo(true)}>
                     <Icon source="information-outline" size={20} />
@@ -100,7 +125,7 @@ const _layout: React.FC = () => {
                   <InformationModal 
                     visible={visibleInfo}
                     onDismiss={() => setVisibleInfo(false)}
-                    tripData={selectedTripId}
+                    tripData={curentId}
                     userTrips={userTrips} 
                     setUserTrips={setUserTrips}
                   />

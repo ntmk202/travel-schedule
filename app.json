@@ -30,7 +30,14 @@
     },
     "plugins": [
       "expo-router",
-      "expo-font"
+      "expo-font",
+      "@maplibre/maplibre-react-native",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow Travel Planner to access your location."
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true

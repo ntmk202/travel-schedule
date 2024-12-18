@@ -18,6 +18,7 @@ const ProfileScreen = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [avatar, setAvatar] = useState<string | null>(null);
+  const [address, setAddress] = useState<string | null>(null);
   const [visible, setVisible] = useState(false);
   const [uploading, setUploading] = useState(false);
 
@@ -26,6 +27,7 @@ const ProfileScreen = () => {
       setUsername(user?.username ?? '');
       setEmail(user?.email ?? '');
       setAvatar(user?.avatar ?? null);
+      setAddress(user?.address ?? null);
     }
   }, [user]);
 
@@ -75,6 +77,7 @@ const ProfileScreen = () => {
           username: username,
           email: email,
           avatar: avatarURL,
+          address: address,
           updatedAt: new Date(),
         });
       
@@ -114,6 +117,12 @@ const ProfileScreen = () => {
             text={email}
             type="emailAddress"
             onChangeText={setEmail}
+          />
+          <TextInputComponent
+            label="Address"
+            text={address}
+            type="address"
+            onChangeText={setAddress}
           />
           <Text style={style.typoText} onPress={() => setVisible(true)}>
             Change Password

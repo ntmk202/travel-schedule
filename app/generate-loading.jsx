@@ -7,9 +7,11 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { doc, setDoc } from 'firebase/firestore';
 import { auth, db } from '@/configs/FirebaseConfig';
 import { ActivityIndicator, Icon } from 'react-native-paper';
+import { getWeatherData } from '@/configs/weatherConfig';
 
 const GenerateLoading = () => {
   const { tripDataContext } = useContext(CreateTripContext) || {};
+  const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(false);
   const user = auth.currentUser
   const route = useRouter();
@@ -21,15 +23,34 @@ const GenerateLoading = () => {
     }
   }, [tripDataContext, user]);
 
+  useEffect(() => {
+      if (tripDataContext) {
+        try {  
+          const fetchWeather = async () => {
+            const data = await getWeatherData(tripDataContext?.location, tripDataContext?.startDate, tripDataContext?.endDate);
+            console.log("Fetched Weather Data:", data);
+            setWeatherData(data);
+          };
+
+          fetchWeather();
+        } catch (error) {
+          console.error("Error parsing dates or fetching weather:", error.message);
+        }
+      } else {
+        console.warn("No dateRange provided!");
+      }
+    }, [tripDataContext]);
+
   const GenerateAiTrip = async () => {
     try {
       setLoading(true);
       const PROMPT_RCM = AI_PROMPT
         .replace('{location}', tripDataContext.location)
+        // .replace('{destination}', tripDataContext.myAddress)
         .replace('{startDate}', tripDataContext.startDate)
         .replace('{endDate}', tripDataContext.endDate)
         .replace('{traveller}', tripDataContext.traveller)
-        .replace('{budget}', tripDataContext.budget)
+        .replace('{budget}', '5000000')
         .replace('{location}', tripDataContext.location)
 
       const result = await chatSession.sendMessage(PROMPT_RCM);
@@ -40,26 +61,10 @@ const GenerateLoading = () => {
         tripId: tripRCMId,
         tripPlan: tripPlanRCM
       };
-      const chatData = {
-        chatId: `group_${tripRCMId}`,
-        tripId: tripRCMId,
-        owner: user.uid,
-        tripRole: 'edit',
-        members: [
-          {
-            userId: user.uid,
-            email: user.email,
-            username: user.displayName || 'Owner',
-            joinAt: new Date().toISOString(),
-          },
-        ],
-      };
 
       if (user?.uid) {
         const tripRef = doc(db, 'users', user.uid, 'userTrip', tripRCMId);
         await setDoc(tripRef, tripRCMData);
-        const chatRef = doc(db, 'groups', `group_${tripRCMId}`);
-        await setDoc(chatRef, chatData);
       } else {
         console.warn("User ID not found; cannot store trip data under a user.");
       }

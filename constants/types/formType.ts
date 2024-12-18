@@ -3,6 +3,7 @@ export interface SignUpFormValues {
     password: string;
     username: string;
     avatar: string | null ;
+    address: string | null ;
 }
   
 export interface SignInFormValues {

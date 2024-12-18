@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, EmailAuthProvider, onAuthStateChanged, reauthenticateWithCredential, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, updatePassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, EmailAuthProvider, onAuthStateChanged, reauthenticateWithCredential, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, updatePassword, UserCredential } from "firebase/auth";
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 import { auth, db } from "@/configs/FirebaseConfig"; // Adjust according to your Firebase config structure
 import { doc, getDoc, setDoc } from "firebase/firestore";
@@ -6,8 +6,8 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 interface AuthContextType {
   user: User | null;
   isAuthenticated: boolean | undefined;
-  signup: (email: string, password: string, username: string, avatar: string | null) => Promise<void>;
-  signin: (email: string, password: string) => Promise<void>;
+  signup: (email: string, password: string, username: string, avatar: string | null, address: string | null) => Promise<void>;
+  signin: (email: string, password: string) => Promise<string | void>;
   logout: () => Promise<void>;
   verifyEmail: (email:string) => Promise<void>;
   changePassword: (oldPassword: string, newPassword: string) => Promise<void>;
@@ -18,6 +18,7 @@ interface User {
   email: string;
   username: string;
   avatar: string | null;
+  address: string | null;
   userId: string;
 }
 
@@ -55,7 +56,8 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
       setUser((prevUser:any) => ({
         ...prevUser,        
         username: data.username, 
-        avatar: data.avatar
+        avatar: data.avatar,
+        address: data.address
       }));
     } else {
       console.log("No such document!");
@@ -63,7 +65,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     }
   };
 
-  const signup = async (email: string, password: string, username: string, avatar: string | null): Promise<void> => {
+  const signup = async (email: string, password: string, username: string, avatar: string | null, address: string | null): Promise<void> => {
     try{
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         console.log("User registered:", userCredential?.user);
@@ -72,6 +74,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
             email: userCredential?.user?.email,
             username,
             avatar,
+            address,
             userId: userCredential?.user?.uid
         })
         console.log('signed up', userCredential?.user)
@@ -80,10 +83,15 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     }
   };
 
-  const signin = async (email: string, password: string): Promise<void> => {
+  const signin = async (email: string, password: string): Promise<string | void> => {
     try{
-        await signInWithEmailAndPassword(auth, email, password);
-        console.log('signed in')
+      const userCredential: UserCredential = await signInWithEmailAndPassword(auth, email, password);
+      const idToken = await userCredential.user.getIdToken();
+  
+      console.log('Signed in successfully');
+      console.log('ID Token:', idToken);
+  
+      return idToken;
     }catch(e:any){
         console.log('Error sign in',e.message)
     }
