@@ -8,13 +8,14 @@ import {
   TextInput,
   FlatList,
 } from "react-native";
-import React, { useContext, useLayoutEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ActivityIndicator, Icon, SegmentedButtons } from "react-native-paper";
 import {
   ButtonComponent,
   ChatbotModal,
   DetailList,
+  ExploreModal,
   FormNewSchedule,
   MapList
 } from "@/components";
@@ -29,16 +30,18 @@ const ScheduleScreen = () => {
   const [value, setValue] = useState("list");
   const [visibleChatbot, setVisibleChatbot] = useState(false);
   const [visibleSchedule, setVisibleSchedule] = useState(false);
+  const [visibleExplore, setVisibleExplore] = useState(false);
   const { tripDataContext, setTripDataContext } = useContext(CreateTripContext) || {}
   const [loading, setLoading] = useState(false);
   const [tripNote, setTripNote] = useState([]);
+  const [recommendations, setRecommendations] = useState([]);
+  const [planningData, setPlanningData] = useState([]);
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [ownerId, setOwnerId] = useState(null); 
   const {user} = useAuth() 
   const userRef = auth.currentUser;
   const route = useRouter()
   route.canGoBack(false)
-
   // Fetch user's trip data
   React.useEffect(() => {
     const fetchTripDetails = async () => {
@@ -47,7 +50,6 @@ const ScheduleScreen = () => {
       setLoading(true);
 
       try {
-        // Query sharedTrips collection to check if the current user has shared trips
         const sharedTripRef = query(collection(db, "users", userRef.uid, "sharedTrips"));
         const sharedTripSnap = await getDocs(sharedTripRef);
 
@@ -56,27 +58,59 @@ const ScheduleScreen = () => {
           const sharedTripData = doc.data();
           if (sharedTripData.tripId === id) {
             setIsAuthorized(true);
-            setOwnerId(sharedTripData.ownerId); // Set ownerId from the shared trip
+            setOwnerId(sharedTripData.ownerId); 
             foundSharedTrip = true;
           }
         });
 
-        // If the trip is shared, fetch trip details from the owner's userTrip collection
         if (foundSharedTrip && ownerId) {
           const tripDocRef = doc(db, "users", ownerId, "userTrip", id);
           const tripDocSnap = await getDoc(tripDocRef);
           if (tripDocSnap.exists()) { 
             setTripNote(tripDocSnap.data());
+
+            // Fetch recommendations data
+            const recommendationsRef = collection(db, "users", ownerId, "userTrip", id, "recommendation");
+            const recommendationsSnap = await getDocs(recommendationsRef);
+            const recommendationsList = recommendationsSnap.docs.map((doc) => doc.data());
+            setRecommendations(recommendationsList);
+
+            // Fetch planning data
+            const planningRef = collection(db, "users", ownerId, "userTrip", id, "planning");
+            const planningSnap = await getDocs(planningRef);
+            if(planningSnap.empty){
+              setVisibleExplore(true);
+            } else {
+              setVisibleExplore(false);
+              const planningList = planningSnap.docs.map((doc) => doc.data());
+              setPlanningData(planningList);
+            }
           }
         }
 
-        // If no shared trip found, fetch trip details from the current user's userTrip collection
         if (!foundSharedTrip) {
           const tripRef = query(collection(db, "users", userRef.uid, "userTrip"));
           const querySnap = await getDocs(tripRef);
           const notes = [];
           querySnap.forEach((doc) => notes.push(doc.data()));
           setTripNote(notes);
+
+          // Fetch recommendations data
+          const recommendationsRef = collection(db, "users", userRef.uid, "userTrip", id, "recommendation");
+          const recommendationsSnap = await getDocs(recommendationsRef);
+          const recommendationsList = recommendationsSnap.docs.map((doc) => doc.data());
+          setRecommendations(recommendationsList);
+
+          // Fetch planning data
+          const planningRef = collection(db, "users", userRef.uid, "userTrip", id, "planning");
+          const planningSnap = await getDocs(planningRef);
+          if(planningSnap.empty){
+            setVisibleExplore(true);
+          } else {
+            setVisibleExplore(false);
+            const planningList = planningSnap.docs.map((doc) => doc.data());
+            setPlanningData(planningList);
+          }
         }
         
       } catch (error) {
@@ -88,8 +122,12 @@ const ScheduleScreen = () => {
 
     fetchTripDetails();
   }, [userRef, isAuthorized, ownerId, id]);
-  
-  const tripPlan = tripNote.length > 0 ? tripNote.find(trip => trip.tripId === id)?.tripPlan?.trip : tripNote?.tripPlan?.trip;
+
+  React.useLayoutEffect(() => {
+    id ?? visibleExplore
+  }, [5000])
+
+  const tripPlan = tripNote.length > 0 ? tripNote.find(trip => trip?.tripId === id) : 'id not found' ;
   
   return (
     <SafeAreaView style={styles.container}>
@@ -114,8 +152,9 @@ const ScheduleScreen = () => {
                 mode="contained-tonal"
                 labelStyle={{ fontSize: 18 }}
                 customstyle={{ borderRadius: 10 }}
-                onPress={() => console.log("press")}
+                onPress={() => setVisibleExplore(true)}
               />
+              <ExploreModal visible={visibleExplore} onDismiss={() => setVisibleExplore(false)} notes={tripPlan} tripData={recommendations}/>
               <View
                 style={{ flexDirection: "row", gap: 20, alignItems: "center" }}
               >
@@ -167,14 +206,14 @@ const ScheduleScreen = () => {
               <View style={{ flexDirection: "row", gap: 20 }}>
                 <View style={{ flexDirection: "row", gap: 5 }}>
                   <Icon source="piggy-bank-outline" size={20} />
-                  <Text style={styles.headerTitle}>{tripPlan?.budget}</Text>
+                  <Text style={styles.headerTitle}>{tripPlan?.tripData?.budget}</Text>
                 </View>
                 <View style={{ flexDirection: "row", gap: 5 }}>
                   <Icon source="account-multiple-outline" size={20} />
-                  <Text style={styles.headerTitle}>{tripPlan?.travelers}</Text>
+                  <Text style={styles.headerTitle}>{tripPlan?.tripData?.traveller}</Text>
                 </View>
               </View>
-              <Text style={styles.headerTitle}>{tripPlan?.duration}</Text>
+              <Text style={styles.headerTitle}>{tripPlan?.tripData?.transport}</Text>
             </View>
           </View>
           {value === "list" ? (
@@ -182,11 +221,11 @@ const ScheduleScreen = () => {
               style={{ marginBottom: 20 }}
               showsVerticalScrollIndicator={false}
             >
-              <DetailList data={tripPlan?.itinerary} />
+              <DetailList data={planningData[0]?.plan} />
 
             </ScrollView>
           ) : (
-            <MapList tripPlan={tripPlan} />
+            <MapList tripPlan={planningData[0]?.plan} /> 
           )}
         </View>
       ) : (

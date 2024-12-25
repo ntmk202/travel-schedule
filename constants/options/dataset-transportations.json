@@ -1,0 +1,3026 @@
+﻿[
+    {
+        "type": "Bike rental",
+        "name": "Honda Wave Rs, Rsx Fi",
+        "price_per_day": "100.000"
+    },
+    {
+        "type": "Bike rental",
+        "name": "Honda Wave Rsx Fi ( 2020 – 2022 )",
+        "price_per_day": "120.000"
+    },
+    {
+        "type": "Bike rental",
+        "name": "Yamaha Sirius Fi",
+        "price_per_day": "100.000"
+    },
+    {
+        "type": "Bike rental",
+        "name": "Yamaha Sirius Fi ( 2020 – 2022 )",
+        "price_per_day": "120.000"
+    },
+    {
+        "type": "Bike rental",
+        "name": "Honda Furure 125 Fi",
+        "price_per_day": "110.000"
+    },
+    {
+        "type": "Bike rental",
+        "name": "Honda Lead ( Cũ )",
+        "price_per_day": "130.000"
+    },
+    {
+        "type": "Bike rental",
+        "name": "Honda Ab ( Cũ )",
+        "price_per_day": "130.000"
+    },
+    {
+        "type": "Bike rental",
+        "name": "Honda Vision ( Cũ )",
+        "price_per_day": "130.000"
+    },
+    {
+        "type": "Bike rental",
+        "name": "Honda Vision 110cc ( 2020 – 2022 )",
+        "price_per_day": "160.000"
+    },
+    {
+        "type": "Bike rental",
+        "name": "Honda Airblade 125cc ( 2019 – 2022 )",
+        "price_per_day": "160.000"
+    },
+    {
+        "type": "Bike rental",
+        "name": "Honda Lead 125cc Mới",
+        "price_per_day": "160.000"
+    },
+    {
+        "type": "Bike rental",
+        "name": "Côn tay Yamaha Exciter",
+        "price_per_day": "170.000"
+    },
+    {
+        "type": "Bike rental",
+        "name": "Côn tay Honda Winner",
+        "price_per_day": "170.000"
+    },
+    {
+        "type": "Bike rental",
+        "name": "Sirius – Wave Rs, Rsx Fi",
+        "price_per_day": "100.000"
+    },
+    {
+        "type": "Bike rental",
+        "name": "Furure 125 Fi",
+        "price_per_day": "110.000"
+    },
+    {
+        "type": "Bike rental",
+        "name": "Lead ( Cũ )",
+        "price_per_day": "130.000"
+    },
+    {
+        "type": "Bike rental",
+        "name": "Ab ( Cũ )",
+        "price_per_day": "130.000"
+    },
+    {
+        "type": "Bike rental",
+        "name": "Vision ( Cũ )",
+        "price_per_day": "130.000"
+    },
+    {
+        "type": "Bike rental",
+        "name": "Vision 110cc ( 2020 – 2022 )",
+        "price_per_day": "160.000"
+    },
+    {
+        "type": "Bike rental",
+        "name": "Airblade 125cc ( 2019 – 2022 )",
+        "price_per_day": "160.000"
+    },
+    {
+        "type": "Bike rental",
+        "name": "Lead 125cc Mới",
+        "price_per_day": "160.000"
+    },
+    {
+        "type": "Bike rental",
+        "name": "Exciter",
+        "price_per_day": "170.000"
+    },
+    {
+        "type": "Bike rental",
+        "name": "Winner",
+        "price_per_day": "170.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái BMW 4 Series",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.400.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Fiesta 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Chevrolet Cruze 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mercedes C Class 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Kia Sorento 2020 tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe COUNTRYMAN tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe bán tải Hilux tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Diesel/Dầu",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Jaguar XJ 2021",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 7 chỗ Audi A8 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.600.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe bán tải Nissan Navara tự lái",
+        "so_cho": "4 chỗ Vip+",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Diesel/Dầu",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Jaguar XJ 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Vinfast 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Focus 2021 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Chevrolet Cruze 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Isuzu D-Max 2020",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Vinfast SUV 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Isuzu D-Max tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Hyundai Sonata 4 chỗ tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.300.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "Xe Tự Lái Audi A6",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ Mitsubishi Mirage tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "650.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Captiva 2018 tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Escape 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 7 chỗ Mitsubishi Grandis tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe KIA Sorento 2019",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "950.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Lexus RX350 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.300.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Isuzu MU-X 2018 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "850.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mercedes GLK Class 7 chỗ tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.300.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Mazda CX 5 2020",
+        "so_cho": "5 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mazda CX5 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ Chevrolet Spark tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số Sàn",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "400.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mazda 2 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Lexus RX350 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.300.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 7 chỗ Honda Odyssey tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Honda Civic 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ tự lái Mercedes C200",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe BMW X6 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.600.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Ford Everest Sport 2019",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Isuzu MU-X tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "950.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mercedes GLC 7 chỗ",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Chevrolet Aveo 2017 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Mazda CX 5 2020",
+        "so_cho": "5 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Escape tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Changan Eado Plus 4 chỗ tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mazda CX-8 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe INNOVA 2015 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "550.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Jaguar XJ 5 chỗ tự lái",
+        "so_cho": "5 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Chevrolet Matiz tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "550.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Honda Civic 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe FORTUNER 2020 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mitsubishi Mirage 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Mazda 3 2020",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "850.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Captiva 2018 tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Kia Cerato 2021 4 chỗ tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Ecosport tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "750.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Nissan X-trail 2019",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mazda 3 2016 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe BMW 7 chỗ tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 7 chỗ Audi A8 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.600.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Explorer 2019 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe bán tải tự lái Ford Ranger 2021 Đà Nẵng",
+        "so_cho": "4 chỗ Vip+",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Diesel/Dầu",
+        "price_per_day": "1.200.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "Xe Z8 2020 Tự Lái Tại Đà Nẵng",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Nissan Terra tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ Celerio tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "Xe tự lái Fortuner 2019 Tại Đà Nẵng",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ tự lái Ford Ecosport",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Everest 2019",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Diesel/Dầu",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Toyota Yaris 2021 tự lái Đà Nẵng",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "950.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái BMW 2017 4 chỗ",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Navara 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Lexus LX 570 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "3.500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Everest Sport 2018 7 chỗ tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Diesel/Dầu",
+        "price_per_day": "1.400.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ Kia Cerato tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "850.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Mazda CX9 2019",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.300.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ tự lái Mercedes E Class",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mercedes C200 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.400.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 7 chỗ tự lái Mazda CX8",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.400.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe BMW tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Trailblazer 2018",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Everest Sport 2018 7 chỗ tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Diesel/Dầu",
+        "price_per_day": "1.400.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 7 chỗ tự lái Land Rover Range",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái BMW 4 Series",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.400.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Hyundai Accent 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Toyota Avanza tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe BMW X3 2020 tự lái",
+        "so_cho": "4 chỗ Vip+",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mercedes 7 chỗ tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ Mercedes S Class tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.200.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Nissan X-trail 2019",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Escape 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Escape tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "750.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mazda CX-8 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "850.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Ford Ranger 2020",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.200.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Ford Focus 2020",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 5 chỗ tự lái Porsche Macan",
+        "so_cho": "4 chỗ Vip+",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Peugeot Suv 2021 7 chỗ tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.300.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Transit 16 chỗ 2020 tự lái",
+        "so_cho": "09 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.300.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Honda City 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe INNOVA 2015 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "550.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ tự lái Ford Focus",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Focus 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Peugeot Suv 3008 tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mazda CX-30 G25 7 chỗ tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Kia Cerato 2021 4 chỗ tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Avanza 2020 tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "850.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Honda Odyssey tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Ford Focus 2020",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Nissan X-trail 2019",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ Celerio tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Audi E-tron Quattro tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mitsubishi Grandis 2020 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.400.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Everest Sport 2018 7 chỗ tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Diesel/Dầu",
+        "price_per_day": "1.400.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Kia Sorento 2019",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Isuzu D-Max tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ tự lái Mazda CX5",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Corolla Altis 2017 4 chỗ tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mitsubishi Grandis 2020 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.400.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mercedes E Class tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.400.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Kia Carens 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "850.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Chevrolet Colorado 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Sedona 2020 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.200.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Avanza 2020 tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "850.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Honda Civic 2018 – 2019",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mitsubishi Mirage 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Porsche Macan 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Ecosport tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "750.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "Xe Tự Lái Audi A6",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe KIA Rio 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "600.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Vinfast SUV tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "600.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe KIA MORNING 2020",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "600.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Chevrolet Spark 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "600.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mazda 6 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "950.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Kia Sorento 2019",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Vinfast Lux SA2.0 7 chỗ tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Terra 2018 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Suzuki Celerio 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "600.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Odyssey 2018 7 chỗ tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mazda 6 2018",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mazda 3 2016 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ Kia Cerato tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "850.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe FORTUNER tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "950.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Isuzu D-Max 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Explorer 2018 tự lái Đà Nẵng",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Toyota Hilux",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mazda CX5 2019 tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ Kia Solute tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "750.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ tự lái Mercedes C200",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Zotye Z8 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "950.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Mazda BT-50 2020",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.200.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe bán tải tự lái Triton 2021 Đà Nẵng",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số Sàn",
+        "nhien_lieu": "Diesel/Dầu",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 7 chỗ Ford Explorer tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái BMW X3",
+        "so_cho": "4 chỗ Vip+",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe bán tải tự lái Ford Ranger 2021 Đà Nẵng",
+        "so_cho": "4 chỗ Vip+",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Diesel/Dầu",
+        "price_per_day": "1.200.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ Wigo tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Sedona 2018 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Diesel/Dầu",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mazda 2 2017 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "600.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Pajero Sport",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe BMW 4 Series tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Escape tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Odyssey 2018 7 chỗ tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mazda BT-50 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mercedes C300",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.600.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Explorer 2020 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Honda Brio 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "600.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ tự lái Mercedes Class",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Nissan Terra",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Nissan Terra tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Avanza 2019 tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Ecosport tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "750.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe bán tải Hilux tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Diesel/Dầu",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Porsche Macan 5 chỗ tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.200.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe KIA CERATO FULL 2019",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ tự lái Elantra",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Mercedes GLC 2020 7 chỗ",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Corolla Altis 2021 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe KIA CERATO 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Honda Civic 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Corolla Altis 2021 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Audi A8 2019",
+        "so_cho": "N/A",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mercedes E Class tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.400.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mitsubishi Grandis 2019 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.300.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Wigo tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "600.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Honda Brio 4 chỗ tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "550.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Vinfast Lux A2.0",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mitsubishi Grandis 2020 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.400.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Honda Accord 2018 4 chỗ tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe KIA Rio 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "600.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Peugeot Suv 2021 7 chỗ tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.300.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Terra 2018 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 7 chỗ Ford Everest tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.300.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Escape tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Toyota Rush tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ Kia Cerato tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "850.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Toyota Rush 2020",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "850.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mazda CX-8 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "850.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 7 chỗ tự lái Land Rover Range",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Hyundai Getz",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số Sàn",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "400.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Kia Carens 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "850.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "Xe tự lái Fortuner 2019 Tại Đà Nẵng",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "Xe Audi Q8",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mazda CX-8 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Hyundai Kona tự lái Đà Nẵng",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mercedes Class 2021 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Chevrolet Việt Nam tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Honda Brio 4 chỗ tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "550.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mazda 6 2018",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ Chevrolet Spark tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số Sàn",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "400.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Mercedes GLC 2020 7 chỗ",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe SantaFe tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mazda BT-50 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Corolla Altis 2021 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Hyundai Kona tự lái Đà Nẵng",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe KIA MORNING 2020",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "600.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mazda CX5 2015 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Toyota Yaris 4 chỗ tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "850.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ Wigo tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mitsubishi Triton 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mazda CX9 2.5AWD 7 chỗ tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.600.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "Xe Audi Q2 Tự Lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Navara 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Honda Civic 2018 – 2019",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Chevrolet Matiz tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "550.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mercedes E Class 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.200.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Focus 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Chevrolet Matiz tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "550.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Ford Focus 2020",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ tự lái Mercedes Class",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Chevrolet Captiva 2016",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Chevrolet Spark 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "600.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mercedes C300",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.600.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Xpander tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Wigo 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "650.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Mercedes GLC 2020 7 chỗ",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Isuzu MU-X 2018 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "850.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 7 chỗ Mazda CX9 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Chevrolet Colorado 2019",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Xpander tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Corolla Altis 2021 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Suzuki Celerio 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "600.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe SantaFe tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Mazda BT-50 2020",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.200.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "Xe Audi Q5 Tự Lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 7 chỗ Ford Everest tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.300.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Trailblazer tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Honda Civic 2018 – 2019",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mazda 6 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "950.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Rush 2019 tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mazda CX9 2.5AWD 7 chỗ tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.600.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Audi A8 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe KIA CERATO 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Audi A8 2019",
+        "so_cho": "N/A",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ Honda Accord tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Ford Ecosport 2019",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mazda CX30 2019 tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ KIA MORNING tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Xpander tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe FORTUNER 2020 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Toyota Yaris 2017 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "Xe tự lái Fortuner 2019 Tại Đà Nẵng",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Suzuki Celerio tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "550.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe INNOVA 2015 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "550.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Fiesta 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Honda Brio tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "550.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Wigo 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "650.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mercedes GLC 7 chỗ",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Vinfast tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.300.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Hyundai Accent 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 7 chỗ Mazda CX30 tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Honda Odyssey 2020 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.200.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe BMW 4 Series tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Kia Cerato 2021 4 chỗ tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Carnival 2023 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Diesel/Dầu",
+        "price_per_day": "2.500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Peugeot Suv 2021 7 chỗ tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.300.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Mitsubishi Triton",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Kia Carens tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "750.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái 16 chỗ Mercedes Sprinter 2019",
+        "so_cho": "09 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.400.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe BMW 320I MODEL 2017 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Ford Focus 2020",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Chevrolet Captiva 2016",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Peugeot 2008 7 chỗ tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.600.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe HONDA CRV 2020",
+        "so_cho": "5 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe COUNTRYMAN tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Pajero Sport",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Isuzu MU-X 2018 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "850.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ tự lái Mercedes Class",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Chevrolet Cruze 2017",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "600.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Nissan X-trail 2019",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Kia Cerato 2021 4 chỗ tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ Honda Accord tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe BMW 5 Series tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 7 chỗ Ford Everest tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.300.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Explorer 2020 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mitsubishi Attrage tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Chevrolet Cruze tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái 16 chỗ Mercedes Sprinter 2019",
+        "so_cho": "09 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.400.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe HRV 2019 tự lái",
+        "so_cho": "4 chỗ Vip+",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.200.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ tự lái BMW 7 Series",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái 16 chỗ Ford Transit 2019",
+        "so_cho": "09 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Kia K3 2022",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Vinfast Lux SA2.0 tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Fiesta tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Fiesta 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Escape tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Kia Solute 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "950.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Nissan Terra",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Peugeot Suv 2021 7 chỗ tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.300.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái CR-V 2019",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Peugeot 5008 tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.990.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Vinfast SUV tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "600.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Honda City 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Vios 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "850.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Toyota Innova G 2018 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Toyota Hilux",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Honda Brio tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "550.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ Celerio tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Nissan Altima Sedan tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "950.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe bán tải tự lái Isuzu D-Max 2020 Đà Nẵng",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Diesel/Dầu",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mercedes S600 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "Xe Grand i10 2020 Tự Lái Tại Đà Nẵng",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "600.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Toyota Corolla tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Vinfast Lux A2.0 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.200.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Fiesta 2020 4 chỗ tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "Xe Audi Q2 Tự Lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Vinfast Lux A2.0",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mazda 2 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "750.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 16 chỗ Ford Transit tự lái",
+        "so_cho": "09 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.200.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Chevrolet Việt Nam tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe BMW 5 Series tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Nissan Maxima 4 chỗ tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ tự lái Mazda 6",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Kia Sorento 2020 tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Kia Solute 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "950.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe bán tải tự lái Triton 2021 Đà Nẵng",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số Sàn",
+        "nhien_lieu": "Diesel/Dầu",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Everest Sport 2.0L 2020 tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Wigo 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "650.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Vinfast 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Vinfast Lux SA2.0 7 chỗ tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Hyundai Accent 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "950.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Lexus RX350 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.300.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mazda 3 2018 – 2019",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Peugeot Suv 3008 tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "Xe Z8 2020 Tự Lái Tại Đà Nẵng",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Vinfast 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.600.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Toyota Camry 2020 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Kia Solute 2020 4 chỗ tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Chevrolet Cruze tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Kia Carens tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "750.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe HRV 2020 tự lái",
+        "so_cho": "4 chỗ Vip+",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.200.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 4 chỗ tự lái Mercedes E Class",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.500.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe 7 chỗ Mazda CX30 tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.700.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Suzuki Celerio tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "550.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Fiesta 2019 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Sedona tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Ecosport tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "750.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Nissan Navara tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Mercedes Benz tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe bán tải Mazda BT-50 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Diesel/Dầu",
+        "price_per_day": "1.100.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe tự lái Toyota Hilux",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "900.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Porsche Macan 5 chỗ tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "2.200.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Ford Ranger 2019 tự lái Đà Nẵng",
+        "so_cho": "5 chỗ",
+        "loai_so": "Số Sàn",
+        "nhien_lieu": "Diesel/Dầu",
+        "price_per_day": "1.000.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Toyota Vios 2015 tự lái",
+        "so_cho": "4 Chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "550.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe KIA RONDO 2019 tự lái",
+        "so_cho": "5+2 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Xăng",
+        "price_per_day": "800.000"
+    },
+    {
+        "type": "Self-driving car",
+        "name": "xe Everest Sport 2018 7 chỗ tự lái",
+        "so_cho": "7 chỗ",
+        "loai_so": "Số tự động",
+        "nhien_lieu": "Diesel/Dầu",
+        "price_per_day": "1.400.000"
+    },
+    {
+        "tinh_thanh_pho": "Đà Nẵng, Thừa Thiên – Huế",
+        "type": "GrabCar 4 chỗ",
+        "price_less_2km": "27.500 VND",
+        "price_per_next_1km": "12.400 VND",
+        "price_per_day": "2300000 VND"
+    },
+    {
+        "tinh_thanh_pho": "Đà Nẵng, Thừa Thiên – Huế",
+        "type": "GrabCar 7 chỗ",
+        "price_less_2km": "34.000 VND",
+        "price_per_next_1km": "14.600 VND",
+        "price_per_day": "3200000 VND"
+    },
+    {
+        "tinh_thanh_pho": "Bắc Ninh, Bình Định, Bình Dương, Cà Mau, Cần Thơ, Đà Nẵng, Đắk Lắk, Đồng Nai, Gia Lai, Hải Phòng, Thừa Thiên – Huế, Khánh Hòa, Long An, Nghệ An, Quảng Ngãi, Quảng Ninh, Rạch Giá, Sóc Trăng, Tây Ninh, Thanh Hóa, Tiền Giang, Vĩnh Phúc",
+        "type": "GrabBike",
+        "price_less_2km": "12.500 VND",
+        "price_per_next_1km": "4.300 VND",
+        "price_per_day": "1800000 VND"
+    }
+]

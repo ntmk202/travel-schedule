@@ -72,15 +72,16 @@ const _layout: React.FC = () => {
 }, []);
 
 
-  const headerTitleStyle = {
-    fontFamily: "RC_SemiBold",
-    fontSize: 24,
-    letterSpacing: 0.24,
-    maxWidth: 190,
-  };
 
-  const curentId = selectedTripId || id
-  const currentTrip = userTrips.find((trip: any) => trip.id === curentId);
+const headerTitleStyle = {
+  fontFamily: "RC_SemiBold",
+  fontSize: 24,
+  letterSpacing: 0.24,
+  maxWidth: 190,
+};
+
+const curentId = selectedTripId || id
+const currentTrip = userTrips.find((trip: any) => trip.id === curentId);
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
@@ -95,7 +96,7 @@ const _layout: React.FC = () => {
             name="planner/[id]" 
             options={{
             headerTitle: currentTrip
-            ? `Trip to ${currentTrip?.tripPlan?.trip?.destination || "..."}`
+            ? `Trip to ${currentTrip?.tripData?.location || "..."}`
             : "",
             headerTitleStyle: headerTitleStyle,
               headerRight: () => (

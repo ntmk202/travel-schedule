@@ -59,11 +59,11 @@ const transformData = [
   { id: "2", title: "grapCar", desc: "50VND/km", icon: "car" },
   {
     id: "3",
-    title: "Rent motorbike",
-    desc: "18VND/hr",
+    title: "Bike rental",
+    desc: "100k VND/day",
     icon: "account-clock-outline",
   },
-  { id: "4", title: "Rent car", desc: "20VND/hr", icon: "car-clock" },
+  { id: "4", title: "Self-driving car", desc: "600k VND/day", icon: "car-clock" },
 ];
 
 const FormNewSchedule = ({ visible, onDismiss, handleSubmit }: any) => {
@@ -162,7 +162,7 @@ const FormNewSchedule = ({ visible, onDismiss, handleSubmit }: any) => {
 
                   <Text style={styles.label}>How is your budget?</Text>
                   <MultiSlider
-                    values={[2000000,3000000]} 
+                    values={[2000000]} 
                     sliderLength={width*.83}
                     step={500000} 
                     min={1000000}
@@ -171,7 +171,7 @@ const FormNewSchedule = ({ visible, onDismiss, handleSubmit }: any) => {
                     markerStyle={{backgroundColor: '#6750a4'}}
                     selectedStyle={{backgroundColor: "#6750a4"}}
                     onValuesChange={(sliderValues) => {
-                      setFieldValue("price", sliderValues)
+                      setFieldValue("price", sliderValues[0])
                     }}
                   />
                   {errors.price && touched.price && (

@@ -53,8 +53,8 @@ const DetailList = ({ data }: any) => {
               {day?.activities?.map((activity: any, idx: number) => (
                 <CustomListItem
                   key={idx}
-                  title={activity.location}
-                  description={activity.time}
+                  title={activity.title||activity.name}
+                  description={activity.timeVisited}
                   icon="map-marker-outline"
                   onPress={() => {
                     setSelectedActivity(activity);
@@ -72,7 +72,6 @@ const DetailList = ({ data }: any) => {
           visible={visibleDetail}
           onDismiss={() => setVisibleDetail(false)}
           data={selectedActivity}
-          // Pass selectedActivity to the modal if needed
         />
       )}
     </>

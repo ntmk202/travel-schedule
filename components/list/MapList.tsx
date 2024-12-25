@@ -15,11 +15,18 @@ const MapWithOptimizedRoute = ({ tripPlan }: { tripPlan: any }) => {
     null
   );
 
-  // Extract geo_coordinates from trip plan activities
-  const activities = tripPlan?.itinerary[1]?.activities || [];
-  const activityCoordinates: GeoCoordinates[] = activities.map(
-    (activity: any) => activity.geo_coordinates
-  );
+  // Extract geo-coordinates from trip plan activities
+  const activities = tripPlan || [];
+  const activityCoordinates: GeoCoordinates[] = activities
+    .flatMap((trip: any) => trip.activities)  
+    .filter(
+      (activity: any) =>
+        activity.location_lat !== undefined && activity.location_lng !== undefined
+    )
+    .map((activity: any) => ({
+      latitude: activity.location_lat,
+      longitude: activity.location_lng,
+    }));
 
   // Fetch current location using expo-location
   const fetchCurrentLocation = async () => {
@@ -39,14 +46,14 @@ const MapWithOptimizedRoute = ({ tripPlan }: { tripPlan: any }) => {
   };
 
   // Fetch the optimized route
-  const fetchOptimizedRoute = async () => { 
-    if (currentLocation) {
-      // Combine current location with activity points
+  const fetchOptimizedRoute = async () => {
+    if (currentLocation && activityCoordinates.length > 0) {
       const points = [currentLocation, ...activityCoordinates];
       const route = await getOptimizedRoute(points, false, "car");
       setRouteCoordinates(route);
     }
   };
+  
 
   useEffect(() => {
     fetchCurrentLocation();
@@ -81,7 +88,7 @@ const MapWithOptimizedRoute = ({ tripPlan }: { tripPlan: any }) => {
           <Marker
             coordinate={currentLocation}
             title="You are here"
-            pinColor="blue" 
+            pinColor="blue"
           />
         )}
 
@@ -102,7 +109,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   map: {
-    ...StyleSheet.absoluteFillObject
+    ...StyleSheet.absoluteFillObject,
   },
 });
 

@@ -63,7 +63,7 @@ export default function CustomDrawerContent(props) {
             return (
               <DrawerItem
                 key={trip.id}
-                label={`Trip to ${trip?.tripPlan?.trip?.destination || "Unknown"}`}
+                label={`Trip to ${trip?.tripData?.location || "Unknown"}`}
                 labelStyle={styles.textDrawer}
                 onPress={() => {
                   const curentId = trip.id || id

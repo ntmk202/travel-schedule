@@ -51,10 +51,7 @@ export const newScheduleSchema = Yup.object().shape({
   location: Yup.string().required('Location is required'),
   traveler: Yup.string().required('Traveler type is required'),
   transport: Yup.string().required('Transport date is required'),
-  price: Yup.array()
-            .of(Yup.number().min(1000000).max(100000000))
-            .length(2, "Price must be a range of two values")
-            .required("Budget range is required"),
+  price: Yup.number().required("Budget range is required"),
   startDate: Yup.date().required('Start date is required'),
   endDate: Yup.date().required('End date is required'),
 });

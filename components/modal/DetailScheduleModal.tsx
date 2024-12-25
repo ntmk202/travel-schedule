@@ -1,5 +1,6 @@
 import {
   Dimensions,
+  Linking,
   Modal,
   StyleSheet,
   Text,
@@ -17,9 +18,12 @@ const DetailScheduleModal = ({ visible, onDismiss, data }: any) => {
         <Surface elevation={2} style={styles.surface}>
           <View style={[styles.row, styles.bar]}>
             <View style={[styles.row, { width: "80%" }]}>
-              {/* <Avatar.Image source={data?.image_url} size={30}/> */}
-              <Icon source="car-convertible" size={30} color="#6750a4" />
-              <Text style={styles.title}>{data?.location}</Text>
+              {data?.imageUrl ? (
+                <Avatar.Image source={{ uri: data?.imageUrl }} size={30} />
+              ) : (
+                <Icon source="car-convertible" size={30} color="#6750a4" />
+              )}
+              <Text style={styles.title}>{data?.title || data?.name}</Text>
             </View>
             <TouchableOpacity onPress={onDismiss}>
               <Icon source="close-circle-outline" size={24} />
@@ -27,11 +31,28 @@ const DetailScheduleModal = ({ visible, onDismiss, data }: any) => {
           </View>
           <View style={styles.wrapper}>
             <View>
-              <Card.Cover source={{ uri: data?.image_url }} />
-              <TouchableOpacity onPress={() => console.log('press')}
+              <Card.Cover source={{ uri: data?.imageUrl || 'https://salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled.png' }} />
+              <TouchableOpacity
+                onPress={
+                  data?.url
+                    ? () => {
+                        Linking.openURL(data?.url).catch((err: any) =>
+                          alert("Error! Failed to open the link")
+                        );
+                      }
+                    : () => alert("Error! Failed to open the link")
+                }
                 style={[
                   styles.row,
-                  { position: "absolute", bottom: 10, left: 10 },
+                  {
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    backgroundColor: "rgba(255, 255, 255, 0.7)",
+                    padding: 10,
+                    borderRadius: 10,
+                  },
                 ]}
               >
                 <View
@@ -40,49 +61,67 @@ const DetailScheduleModal = ({ visible, onDismiss, data }: any) => {
                     padding: 10,
                     borderRadius: 30,
                   }}
-                  
                 >
                   <Icon source="near-me" size={20} color="#fff" />
                 </View>
                 <Text style={[styles.text, { maxWidth: 250 }]}>
-                  {data?.address}
+                  {data?.address || "No address yet"}
                 </Text>
               </TouchableOpacity>
             </View>
-            <View style={[styles.row, { justifyContent: "space-between", marginTop: 5 }]}>
+            <View
+              style={[
+                styles.row,
+                { justifyContent: "space-between", marginTop: 5 },
+              ]}
+            >
               <View style={styles.row}>
-                <Icon source='ticket-confirmation-outline' size={20} color="#6750a4"/>
-                <Text style={styles.text}>{data?.ticket_price}</Text>
+                <Icon
+                  source="ticket-confirmation-outline"
+                  size={20}
+                  color="#6750a4"
+                />
+                <Text style={styles.text}>
+                  {data?.price || data?.price_per_day} VND
+                </Text>
               </View>
               <View style={styles.row}>
-                <Icon source="star" size={20} color="#6750a4"/>
+                <Icon source="star" size={20} color="#6750a4" />
                 <Text style={styles.text}>
-                  {data?.rating ? data?.rating : "0 stars"}
+                  {data?.totalScore ? data?.totalScore : "0"} stars
                 </Text>
               </View>
             </View>
             <View style={[styles.row, { justifyContent: "space-between" }]}>
               <View style={styles.row}>
-                <Icon source="clock-outline" size={20} color="#6750a4"/>
-                <Text style={styles.text}>{data?.time}</Text>
+                <Icon source="clock-outline" size={20} color="#6750a4" />
+                <Text style={styles.text}>{data?.timeVisited}</Text>
               </View>
               <View style={styles.row}>
-                <Icon source="car-hatchback" size={20} color="#6750a4"/>
-                <Text style={styles.text}>{data?.travel_time}</Text>
+                <Icon source="car-hatchback" size={20} color="#6750a4" />
+                <Text style={styles.text}>{data?.distance_km} km</Text>
               </View>
             </View>
             <Text
               style={[styles.text, { textAlign: "justify", marginTop: 10 }]}
             >
-              {data?.details}
+              {data?.note}
+              {"\n"}
+              {data?.description}
             </Text>
             <ButtonComponent
               mode="contained"
               label="Change location"
               labelStyle={{ fontSize: 18 }}
               height={50}
-              customstyle={{position: 'absolute', margin: 20, bottom: 0, left: 0, right: 0}}
-              onPress={() => console.log('press')}
+              customstyle={{
+                position: "absolute",
+                margin: 20,
+                bottom: 0,
+                left: 0,
+                right: 0,
+              }}
+              onPress={() => console.log("press")}
             />
           </View>
         </Surface>
